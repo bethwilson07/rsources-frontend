@@ -5,16 +5,20 @@ import CourseShowPage from './CourseShowPage'
 import FilteredCoursePage from './FilteredCoursePage'
 import ResourceShowPage from './ResourceShowPage'
 
+
 const EveryOtherComponent =() => {
-  return (
-    <div>
-      <HomePage />
-      <SubjectPage />
-      <CourseShowPage />
-      <FilteredCoursePage />
-      <ResourceShowPage />
-    </div>
-  )
+
+
+    return (
+      <div>
+        <HomePage />
+        <SubjectPage />
+        <CourseShowPage />
+        <FilteredCoursePage />
+        <ResourceShowPage />
+      </div>
+    )
+
 }
 
 export default EveryOtherComponent;
