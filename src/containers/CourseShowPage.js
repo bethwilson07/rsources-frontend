@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import TopNavBar from '../components/TopNavBar';
 import SideNavBar from '../components/SideNavBar';
+import ResourceContainer from './ResourceContainer';
+import PostContainer from './PostContainer';
 
-const ResourceShowPage =() => {
+
+const CourseShowPage =() => {
   return (
     <div>
       <TopNavBar />
       <SideNavBar />
-      Name
-      Description
+      <ResourceContainer />
+      <PostContainer />
     </div>
   )
 }
 
-export default ResourceShowPage;
+export default CourseShowPage;
