@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import NewPostForm from '../components/NewPostForm';
 
 
 const PostContainer =() => {
   return (
     <div>
-      Post Area 
+      Post Area
       <NewPostForm />
     </div>
   )

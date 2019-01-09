@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import TopNavBar from '../components/TopNavBar';
 import SideNavBar from '../components/SideNavBar';
 

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import HomePage from './HomePage'
 import SubjectPage from './SubjectPage'
 import CourseShowPage from './CourseShowPage'
