@@ -1,16 +1,23 @@
 import React from 'react';
-import TopNavBar from '../components/TopNavBar'
-import SideNavBar from '../components/SideNavBar'
+import {Image, Card, Container} from 'semantic-ui-react'
+import {connect} from 'react-redux'
 
-const HomePage =() => {
-  return (
-    <div>
-      <TopNavBar />
-      <SideNavBar />
-      Image
-      Quote
-    </div>
-  )
+class HomePage extends React.Component {
+
+
+
+  render() {
+    return (
+      <div>
+        <Card className="home-image">
+          <Image src='http://www.spaceweek.ie/wp-content/uploads/2017/09/nasa-space-pictures-hd-hd-widescreen-11.jpg' />
+        </Card>
+        <Container>
+          Quote
+        </Container>
+      </div>
+    )
+  }
 }
 
-export default HomePage;
+export default connect()(HomePage);

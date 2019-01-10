@@ -1,9 +1,39 @@
+import { combineReducers } from "redux";
 
+const subjectsReducer = (state = [], action) => {
+  switch(action.type) {
+    case "FETCHED_SUBJECTS":
+      return action.subjects
+    default:
+      return state;
+  }
+}
 
-const reducer = (state = {}, action) => {
+const coursesReducer = (state = [], action) => {
+  switch(action.type) {
+    case "FETCHED_COURSES":
+      return action.courses
+    // case "ADD_COURSE":
+      // return [...state, action.course]
+    default:
+      return state;
+  }
+}
 
-  return state;
+const resourcesReducer = (state = [], action) => {
+  switch(action.type) {
+    case "FETCHED_RESOURCES":
+      return action.resources
+    default:
+      return state;
+  }
 }
 
 
-export default reducer;
+const rootReducer = combineReducers({
+  subjects: subjectsReducer,
+  courses: coursesReducer,
+  resources: resourcesReducer
+});
+
+export default rootReducer;

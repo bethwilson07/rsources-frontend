@@ -8,8 +8,6 @@ import PostContainer from './PostContainer';
 const CourseShowPage =() => {
   return (
     <div>
-      <TopNavBar />
-      <SideNavBar />
       <ResourceContainer />
       <PostContainer />
     </div>
