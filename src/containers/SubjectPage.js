@@ -2,14 +2,9 @@ import React from 'react';
 import CourseCard from '../components/CourseCard'
 import {Grid, Card, Image} from 'semantic-ui-react'
 import {connect} from 'react-redux'
-import {fetchingCourses} from '../redux/actions'
 import {withRouter, Link} from 'react-router-dom'
 
 class SubjectPage extends React.Component {
-
-  componentDidMount() {
-    this.props.dispatch(fetchingCourses())
-  }
 
   filterCourses() {
     return this.props.courses.filter(c => c.subject_id === parseInt(this.props.match.params.id))
@@ -29,7 +24,7 @@ class SubjectPage extends React.Component {
         <Grid>
           <Grid.Row columns={1}>
             <Card className="subject">
-              <Image src={this.getCurrentSubjectPhoto()}/>
+              <Image src={this.getCurrentSubjectPhoto()} className="sub"/>
             </Card>
           </Grid.Row>
           <Grid.Row columns={3}>
@@ -53,3 +48,8 @@ const mapStateToProps = state => {
 }
 
 export default withRouter(connect(mapStateToProps)(SubjectPage));
+
+  //
+  // componentDidMount() {
+  //   this.props.dispatch(fetchingCourses())
+  // }

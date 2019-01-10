@@ -23,8 +23,12 @@
 
 .ui.card.subject {
   margin: auto;
-
   margin-bottom: 50px;
+}
+
+.ui.image.sub {
+  min-width: 290px;
+  min-height: 180px;
 }
 
 .ui.card.course {
@@ -35,11 +39,35 @@
   margin-right: 10px;
 }
 
+.ui.card.res {
+  max-width: 250px;
+  max-height: 250px;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.ui.image.resource {
+  max-width: 250px;
+  max-height: 200px;
+}
+
 .ui.grid {
   margin: auto;
   padding: 50px;
 }
 
 .three.column.row {
+  margin: auto;
   padding-left: 50px;
+}
+
+.three.column.row.sources {
+  padding-left: 100px;
+}
+
+.title {
+  margin: auto;
 }

@@ -8,7 +8,6 @@ const fetchingSubjects = () => {
     fetch("http://localhost:3000/subjects")
     .then(res => res.json())
     .then(subjects => {
-      console.log(subjects)
       dispatch(fetchedSubjects(subjects))
     })
   }
@@ -26,7 +25,6 @@ const fetchingCourses = () => {
     fetch("http://localhost:3000/courses")
     .then(res => res.json())
     .then(courses  => {
-      console.log(courses)
       dispatch(fetchedCourses(courses))
     })
   }
@@ -48,7 +46,6 @@ const fetchingResources = () => {
     fetch("http://localhost:3000/resources")
     .then(res => res.json())
     .then(resources => {
-      console.log(resources)
       dispatch(fetchedResources(resources))
     })
   }
