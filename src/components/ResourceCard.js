@@ -1,9 +1,9 @@
 import React from 'react';
 
-const ResourceCard =() => {
+const ResourceCard =(props) => {
   return (
     <div>
-      Resource 1
+      {props.name}
     </div>
   )
 }

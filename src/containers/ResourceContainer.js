@@ -13,11 +13,16 @@ class ResourceContainer extends React.Component {
   render() {
     return (
       <div>
-        <ResourceCard />
-        <ResourceCard />
+        {this.props.resources.map(r => <ResourceCard key={r.id} resource={r}/>)}
       </div>
     )
   }
 }
 
-export default connect()(ResourceContainer);
+const mapStateToProps = state => {
+  return {
+    resources: state.resources,
+  }
+}
+
+export default connect(mapStateToProps)(ResourceContainer);

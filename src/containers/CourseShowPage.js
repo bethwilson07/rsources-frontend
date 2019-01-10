@@ -1,6 +1,4 @@
 import React from 'react';
-import TopNavBar from '../components/TopNavBar';
-import SideNavBar from '../components/SideNavBar';
 import ResourceContainer from './ResourceContainer';
 import PostContainer from './PostContainer';
 

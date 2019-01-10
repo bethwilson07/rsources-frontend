@@ -20,3 +20,26 @@
   min-width: 500px;
   min-height: 250px;
 }
+
+.ui.card.subject {
+  margin: auto;
+
+  margin-bottom: 50px;
+}
+
+.ui.card.course {
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.ui.grid {
+  margin: auto;
+  padding: 50px;
+}
+
+.three.column.row {
+  padding-left: 50px;
+}
