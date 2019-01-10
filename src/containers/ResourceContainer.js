@@ -11,6 +11,7 @@ class ResourceContainer extends React.Component {
   }
 
   render() {
+    console.log(this.props.resources)
     return (
       <div>
         {this.props.resources.map(r => <ResourceCard key={r.id} resource={r}/>)}

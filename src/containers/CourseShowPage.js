@@ -1,15 +1,18 @@
 import React from 'react';
 import ResourceContainer from './ResourceContainer';
 import PostContainer from './PostContainer';
+import {connect} from 'react-redux'
 
+const CourseShowPage =(props) => {
 
-const CourseShowPage =() => {
-  return (
-    <div>
-      <ResourceContainer />
-      <PostContainer />
-    </div>
-  )
+    return (
+      <div>
+        <ResourceContainer />
+        <PostContainer />
+      </div>
+    )
+
 }
 
-export default CourseShowPage;
+
+export default connect()(CourseShowPage);

@@ -1,9 +1,8 @@
 import React from 'react';
 import {Menu} from 'semantic-ui-react'
-import SubjectPage from '../containers/SubjectPage'
 import {connect} from 'react-redux'
 import {fetchingSubjects} from '../redux/actions'
-import {Route, withRouter, Link} from 'react-router-dom'
+import {withRouter, Link} from 'react-router-dom'
 
 class SideNavBar extends React.Component {
 
@@ -17,13 +16,10 @@ class SideNavBar extends React.Component {
 
           <Menu vertical>
             <Link to={'/home'}><Menu.Item>Home</Menu.Item></Link>
-              {this.props.subjects.map(s => <Link to={`/subject/${s.id}`} key={s.id}><Menu.Item>{s.name}</Menu.Item></Link>)}
+              {this.props.subjects.map(s => <Link to={`/subject/${s.id}`} key={s.id}><Menu.Item key={s.id}>{s.name}</Menu.Item></Link>)}
             <Menu.Item></Menu.Item>
           </Menu>
 
-          <Route exact path={`/subject/:id`} render ={(props) => {
-            return ( <SubjectPage history={props.history} match={props.match}/>)
-            }} />
 
         </div>
       )

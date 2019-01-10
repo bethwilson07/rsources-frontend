@@ -1,8 +1,9 @@
 import React from 'react';
-import CourseCard from '../components/CourseCard';
+import CourseCard from '../components/CourseCard'
 import {Grid, Card, Image} from 'semantic-ui-react'
 import {connect} from 'react-redux'
 import {fetchingCourses} from '../redux/actions'
+import {withRouter, Link} from 'react-router-dom'
 
 class SubjectPage extends React.Component {
 
@@ -32,9 +33,13 @@ class SubjectPage extends React.Component {
             </Card>
           </Grid.Row>
           <Grid.Row columns={3}>
-            {this.filterCourses().map(c => <CourseCard key={c.id} course={c}/>)}
+            {this.filterCourses().map(c => <Link to={`/course/${c.id}`} key={c.id}>
+              <CourseCard key={c.id} course={c}/></Link>)}
           </Grid.Row>
         </Grid>
+
+
+
       </div>
     )
   }
@@ -47,4 +52,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(SubjectPage);
+export default withRouter(connect(mapStateToProps)(SubjectPage));
