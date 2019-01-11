@@ -26,6 +26,7 @@ class App extends Component {
 
             <TopNavBar />
             <SideNavBar />
+
         <Route exact path='/home' render ={() => {
           return ( <HomePage />)
           }} />
@@ -38,11 +39,11 @@ class App extends Component {
           return ( <CourseShowPage history={props.history} match={props.match}/>)
           }} />
 
-        <Route exact path={`/course/resource/:type`} render ={(props) => {
+        <Route exact path={`/course/:id/resources/:name`} render ={(props) => {
           return ( <FilteredCoursePage history={props.history} match={props.match}/>)
           }} />
 
-        <Route exact path={`/resource/:id`} render ={(props) => {
+        <Route exact path={`/resource/show/:id`} render ={(props) => {
           return ( <ResourceShowPage history={props.history} match={props.match}/>)
           }} />
 

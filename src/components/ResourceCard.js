@@ -6,7 +6,7 @@ const ResourceCard =(props) => {
     <div>
       <Card className="res">
         <Image src={props.photo} className="resource"/>
-        <Card.Content>{props.name}</Card.Content>
+        <Card.Content>{props.title}</Card.Content>
       </Card>
     </div>
   )

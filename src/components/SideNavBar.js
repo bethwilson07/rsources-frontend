@@ -1,7 +1,7 @@
 import React from 'react';
 import {Menu} from 'semantic-ui-react'
 import {connect} from 'react-redux'
-import {fetchingSubjects, fetchingCourses} from '../redux/actions'
+import {fetchingSubjects, fetchingCourses, fetchingResources} from '../redux/actions'
 import {withRouter, Link} from 'react-router-dom'
 
 class SideNavBar extends React.Component {
@@ -9,6 +9,7 @@ class SideNavBar extends React.Component {
     componentDidMount() {
       this.props.dispatch(fetchingSubjects());
       this.props.dispatch(fetchingCourses());
+      this.props.dispatch(fetchingResources());
     }
 
     render () {

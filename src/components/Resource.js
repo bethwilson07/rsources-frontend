@@ -1,11 +1,15 @@
 import React from 'react';
+import {Card} from 'semantic-ui-react'
+import {Link, withRouter} from 'react-router-dom'
 
-const Resource =() => {
+const Resource =(props) => {
   return (
     <div>
-      Resource
+      <Card className="links">
+        <Link to={`/resource/show/${props.resource.id}`}>{props.resource.name}</Link>
+      </Card>
     </div>
   )
 }
 
-export default Resource;
+export default withRouter(Resource);
