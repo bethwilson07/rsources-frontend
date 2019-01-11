@@ -17,7 +17,7 @@ class CourseShowPage extends React.Component {
     return (
       <div>
         <h1 className="title">{this.getCurrentCourseName()}</h1>
-        <ResourceContainer />
+        <ResourceContainer courseId={parseInt(this.props.match.params.id)}/>
         <PostContainer />
       </div>
     )

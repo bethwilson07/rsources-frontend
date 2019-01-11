@@ -6,6 +6,7 @@ import TopNavBar from './components/TopNavBar'
 import SideNavBar from './components/SideNavBar'
 import SubjectPage from './containers/SubjectPage'
 import ResourceShowPage from './containers/ResourceShowPage'
+import FilteredCoursePage from './containers/FilteredCoursePage'
 import { Route } from 'react-router-dom'
 import CourseShowPage from './containers/CourseShowPage'
 
@@ -35,6 +36,10 @@ class App extends Component {
 
         <Route exact path={`/course/:id`} render ={(props) => {
           return ( <CourseShowPage history={props.history} match={props.match}/>)
+          }} />
+
+        <Route exact path={`/course/resource/:type`} render ={(props) => {
+          return ( <FilteredCoursePage history={props.history} match={props.match}/>)
           }} />
 
         <Route exact path={`/resource/:id`} render ={(props) => {
