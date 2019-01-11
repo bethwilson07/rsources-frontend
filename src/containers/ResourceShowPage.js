@@ -16,6 +16,8 @@ class ResourceShowPage extends React.Component {
     console.log(this.findCurrentResource())
     return (
       <div>
+        <br></br>
+        <h1>{this.findCurrentResource() ? this.findCurrentResource()[0].name : null}</h1>
         <Card
           className="resources"
           image={this.findCurrentResource() ? this.findCurrentResource()[0].photo : null}

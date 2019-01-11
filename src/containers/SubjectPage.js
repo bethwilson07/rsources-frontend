@@ -18,9 +18,19 @@ class SubjectPage extends React.Component {
     }
   }
 
+  getCurrentSubjectName() {
+    if (this.props.subjects[0]){
+      return this.props.subjects.find(s => s.id === parseInt(this.props.match.params.id)).name;
+    } else {
+      return null;
+    }
+  }
+
   render() {
     return (
       <div>
+        <br></br>
+        <h1>{this.getCurrentSubjectName()}</h1>
         <Grid>
           <Grid.Row columns={1}>
             <Card className="subject">

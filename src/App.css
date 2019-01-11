@@ -15,12 +15,14 @@
 
 .ui.card.home-image {
   margin: auto;
-  margin-top: 10rem;
+  margin-top: 5rem;
   margin-bottom: 5rem;
   min-width: 500px;
   min-height: 250px;
 }
-
+.ui.card>.image {
+  max-height: 400px;
+}
 .ui.card.resource-image {
   margin-bottom: 5rem;
   margin: auto;
@@ -63,7 +65,7 @@
 
 .ui.card.resources {
   margin: auto;
-  margin-top: 100px;
+  margin-top: 50px;
   min-width: 500px;
   max-width: 500px;
   min-height: 500px;

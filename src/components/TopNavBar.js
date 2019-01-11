@@ -6,7 +6,7 @@ const TopNavBar =() => {
     <div>
       <Segment clearing >
         <Header as='h2' floated='left'>
-          Welcome, User!
+          Rsources
         </Header>
         <Header as='h2' floated='right'>
           Logout
