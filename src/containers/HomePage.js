@@ -2,7 +2,7 @@ import React from 'react';
 import {Redirect} from 'react-router-dom'
 import {Image, Card} from 'semantic-ui-react'
 
-const HomePage = ({currentUser}) => currentUser? (
+const HomePage = ({currentUser}) => currentUser ? (
       <div>
         <br></br>
         <h1>{`Welcome ${currentUser.username}!`}</h1>

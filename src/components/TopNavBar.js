@@ -14,11 +14,38 @@ const TopNavBar =({location: { pathname }, logged_in, setCurrentUser}) => {
       {logged_in ? (
         <Fragment>
           <Menu.Item
+            name="RSources"
+          />
+          <Menu.Item
             as={NavLink}
             to="/home"
-            name="RSources "
+            name="Home"
             active={pathname === "/home"}
-          />
+            />
+          <Menu.Item
+            as={NavLink}
+            to="/subject/1"
+            name="Science"
+            active={pathname === "/subject/1"}
+            />
+          <Menu.Item
+            as={NavLink}
+            to="/subject/2"
+            name="Tech"
+            active={pathname === "/subject/2"}
+            />
+          <Menu.Item
+            as={NavLink}
+            to="/subject/3"
+            name="Engineering"
+            active={pathname === "/subject/3"}
+            />
+          <Menu.Item
+            as={NavLink}
+            to="/subject/4"
+            name="Math"
+            active={pathname === "/subject/4"}
+            />
           <Menu.Menu position="right">
             <Menu.Item to="/logout" name="Logout" onClick={logout} />
           </Menu.Menu>
@@ -27,7 +54,7 @@ const TopNavBar =({location: { pathname }, logged_in, setCurrentUser}) => {
         <Menu.Item
           as={NavLink}
           to="/login"
-          name="Login"
+          name="Rsources Login"
           active={pathname === "/login"}
         />
       )}

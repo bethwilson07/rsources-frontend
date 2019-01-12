@@ -23,7 +23,6 @@ class ResourceContainer extends React.Component {
             <ResourceCard key={t.id} title={t.title} photo={t.photo}/></Link>)}
           </Grid.Row>
         </Grid>
-
       </div>
     )
   }

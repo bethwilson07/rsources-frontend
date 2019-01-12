@@ -1,9 +1,16 @@
 import React from 'react';
 import ResourceContainer from './ResourceContainer';
 import PostContainer from './PostContainer';
+import {fetchingCourses} from '../redux/actions'
 import {connect} from 'react-redux'
+import {Redirect} from 'react-router-dom'
 
 class CourseShowPage extends React.Component {
+
+  componentDidMount() {
+    this.props.dispatch(fetchingCourses());
+  }
+
 
   getCurrentCourseName() {
     if (this.props.courses[0]){
@@ -14,14 +21,14 @@ class CourseShowPage extends React.Component {
   }
 
   render() {
-    return (
+    return (this.props.currentUser ? (
       <div>
         <br></br>
         <h1 className="title">{this.getCurrentCourseName()}</h1>
         <ResourceContainer courseId={parseInt(this.props.match.params.id)}/>
         <PostContainer />
-      </div>
-    )
+      </div>)
+     : <Redirect to="/login" />)
   }
 
 }

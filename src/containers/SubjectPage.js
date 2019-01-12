@@ -2,9 +2,15 @@ import React from 'react';
 import CourseCard from '../components/CourseCard'
 import {Grid, Card, Image} from 'semantic-ui-react'
 import {connect} from 'react-redux'
-import {withRouter, Link} from 'react-router-dom'
+import {fetchingSubjects, fetchingCourses} from '../redux/actions'
+import {Redirect, withRouter, Link} from 'react-router-dom'
 
 class SubjectPage extends React.Component {
+
+  componentDidMount() {
+    this.props.dispatch(fetchingSubjects());
+    this.props.dispatch(fetchingCourses());
+  }
 
   filterCourses() {
     return this.props.courses.filter(c => c.subject_id === parseInt(this.props.match.params.id))
@@ -27,7 +33,7 @@ class SubjectPage extends React.Component {
   }
 
   render() {
-    return (
+    return (this.props.currentUser ? (
       <div>
         <br></br>
         <h1>{this.getCurrentSubjectName()}</h1>
@@ -42,11 +48,8 @@ class SubjectPage extends React.Component {
               <CourseCard key={c.id} course={c}/></Link>)}
           </Grid.Row>
         </Grid>
-
-
-
-      </div>
-    )
+      </div>)
+     : <Redirect to="/login" />)
   }
 }
 

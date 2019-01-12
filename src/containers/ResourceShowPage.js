@@ -1,8 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux'
+import {fetchingResources} from '../redux/actions'
 import {Card } from 'semantic-ui-react'
+import {Redirect} from 'react-router-dom'
 
 class ResourceShowPage extends React.Component {
+
+  componentDidMount() {
+    this.props.dispatch(fetchingResources());
+  }
+
 
   findCurrentResource () {
     if(this.props.resources[0]) {
@@ -13,8 +20,7 @@ class ResourceShowPage extends React.Component {
   }
 
   render() {
-    console.log(this.findCurrentResource())
-    return (
+    return (this.props.currentUser ? (
       <div>
         <br></br>
         <h1>{this.findCurrentResource() ? this.findCurrentResource()[0].name : null}</h1>
@@ -25,8 +31,8 @@ class ResourceShowPage extends React.Component {
           meta={this.findCurrentResource() ? this.findCurrentResource()[0].resource_type : null}
           description={this.findCurrentResource() ? this.findCurrentResource()[0].description : null}
         />
-      </div>
-    )
+      </div>)
+      : <Redirect to="/login" />)
   }
 }
 

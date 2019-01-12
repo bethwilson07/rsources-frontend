@@ -17,7 +17,6 @@ class SideNavBar extends React.Component {
         <div className="sidebar">
 
           <Menu vertical>
-            <Link to={'/home'}><Menu.Item>Home</Menu.Item></Link>
               {this.props.subjects.map(s => <Link to={`/subject/${s.id}`} key={s.id}><Menu.Item key={s.id}>{s.name}</Menu.Item></Link>)}
             <Menu.Item></Menu.Item>
           </Menu>

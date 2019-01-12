@@ -3,6 +3,7 @@ import Resource from '../components/Resource'
 import NewResourceForm from '../components/NewResourceForm'
 import {connect} from 'react-redux'
 import {fetchingResources} from '../redux/actions'
+import {Redirect} from 'react-router-dom'
 
 class FilteredCoursePage extends React.Component {
 
@@ -42,13 +43,13 @@ class FilteredCoursePage extends React.Component {
   }
 
   render () {
-    return (
+    return (this.props.currentUser ? (
       <div>
         <h1 className="title">{this.makePageTitle(this.props.match.params.name)}</h1>
         {this.getTypeOfResource().map(r => <Resource key={r.id} resource={r}/>)}
         <NewResourceForm />
-      </div>
-    )
+      </div> )
+      : <Redirect to="/login" />)
   }
 }
 

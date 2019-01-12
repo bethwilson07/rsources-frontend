@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import Login from './components/Login'
 import TopNavBar from './components/TopNavBar'
-import SideNavBar from './components/SideNavBar'
 import HomePage from './containers/HomePage'
 import SubjectPage from './containers/SubjectPage'
 import ResourceShowPage from './containers/ResourceShowPage'
@@ -52,13 +51,12 @@ class App extends Component {
     return (
       <div className="App">
 
+        <TopNavBar logged_in={this.state.currentUser} setCurrentUser={this.setCurrentUser}/>
+
         <Route exact path="/login" render={() => this.state.loading ? null : (this.state.currentUser ?
             <Redirect to="/home" /> :
             <Login setCurrentUser={this.setCurrentUser}/> )}
         />
-
-            <TopNavBar logged_in={this.state.currentUser} setCurrentUser={this.setCurrentUser}/>
-            <SideNavBar />
 
         <Route exact path='/home' render ={() => {
           return ( <HomePage currentUser={this.state.currentUser}/>)
@@ -67,25 +65,29 @@ class App extends Component {
         <Route exact path={`/subject/:id`} render ={(props) => {
           return ( <SubjectPage
             history={props.history}
-            match={props.match}/>)
+            match={props.match}
+            currentUser={this.state.currentUser}/>)
           }} />
 
         <Route exact path={`/course/:id`} render ={(props) => {
           return ( <CourseShowPage
             history={props.history}
-            match={props.match}/>)
+            match={props.match}
+            currentUser={this.state.currentUser}/>)
           }} />
 
         <Route exact path={`/course/:id/resources/:name`} render ={(props) => {
           return ( <FilteredCoursePage
             history={props.history}
-            match={props.match}/>)
+            match={props.match}
+            currentUser={this.state.currentUser}/>)
           }} />
 
         <Route exact path={`/resource/show/:id`} render ={(props) => {
           return ( <ResourceShowPage
             history={props.history}
-            match={props.match}/>)
+            match={props.match}
+            currentUser={this.state.currentUser}/>)
           }} />
 
 
