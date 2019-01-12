@@ -58,8 +58,3 @@ const mapStateToProps = state => {
 }
 
 export default withRouter(connect(mapStateToProps)(SubjectPage));
-
-  //
-  // componentDidMount() {
-  //   this.props.dispatch(fetchingCourses())
-  // }
