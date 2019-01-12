@@ -11,7 +11,6 @@ class CourseShowPage extends React.Component {
     this.props.dispatch(fetchingCourses());
   }
 
-
   getCurrentCourseName() {
     if (this.props.courses[0]){
       return this.props.courses.find(c => c.id === parseInt(this.props.match.params.id)).name;
@@ -24,7 +23,7 @@ class CourseShowPage extends React.Component {
     return (this.props.currentUser ? (
       <div>
         <br></br>
-        <h1 className="title">{this.getCurrentCourseName()}</h1>
+        <h1>{this.getCurrentCourseName()}</h1>
         <ResourceContainer courseId={parseInt(this.props.match.params.id)}/>
         <PostContainer />
       </div>)
