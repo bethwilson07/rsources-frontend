@@ -1,14 +1,32 @@
 import React from 'react';
 import Resource from '../components/Resource'
 import NewResourceForm from '../components/NewResourceForm'
+import {Breadcrumb} from 'semantic-ui-react'
 import {connect} from 'react-redux'
-import {fetchingResources} from '../redux/actions'
-import {Redirect} from 'react-router-dom'
+import {fetchingResources, fetchingCourses} from '../redux/actions'
+import {Redirect, NavLink} from 'react-router-dom'
 
 class FilteredCoursePage extends React.Component {
 
   componentDidMount() {
-    this.props.dispatch(fetchingResources())
+    this.props.dispatch(fetchingResources());
+    this.props.dispatch(fetchingCourses())
+  }
+
+  getCurrentCourse() {
+    if (this.props.courses[0]){
+      return this.props.courses.find(c => c.id === parseInt(this.props.match.params.id))
+    } else {
+      return null;
+    }
+  }
+
+  getCurrentSubject() {
+    if(this.props.courses[0]){
+      return this.props.courses.find(c => c.id === parseInt(this.props.match.params.id)).subject
+    }else {
+      return null;
+    }
   }
 
   filterResources(rType) {
@@ -45,6 +63,17 @@ class FilteredCoursePage extends React.Component {
   render () {
     return (this.props.currentUser ? (
       <div>
+        <Breadcrumb>
+          <Breadcrumb.Section as={NavLink} to="/home">Home</Breadcrumb.Section>
+          <Breadcrumb.Divider icon='right angle' />
+          <Breadcrumb.Section as={NavLink} to={`/subject/${this.getCurrentSubject().id}`}>
+            {this.getCurrentSubject().name}</Breadcrumb.Section>
+          <Breadcrumb.Divider icon='right angle' />
+          <Breadcrumb.Section as={NavLink} to={`/course/${this.getCurrentCourse().id}`}>
+            {this.getCurrentCourse().name}</Breadcrumb.Section>
+          <Breadcrumb.Divider icon='right angle' />
+          <Breadcrumb.Section>{this.makePageTitle(this.props.match.params.name)}</Breadcrumb.Section>
+        </Breadcrumb>
         <br></br>
         <h1>{this.makePageTitle(this.props.match.params.name)}</h1>
         <br></br>
@@ -57,7 +86,8 @@ class FilteredCoursePage extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    resources: state.resources
+    resources: state.resources,
+    courses: state.courses
   }
 }
 

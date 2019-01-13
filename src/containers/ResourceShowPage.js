@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import {fetchingResources} from '../redux/actions'
-import {Card } from 'semantic-ui-react'
+import {Card, Breadcrumb} from 'semantic-ui-react'
 import {Redirect} from 'react-router-dom'
 
 class ResourceShowPage extends React.Component {
@@ -9,7 +9,6 @@ class ResourceShowPage extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchingResources());
   }
-
 
   findCurrentResource () {
     if(this.props.resources[0]) {
@@ -19,9 +18,17 @@ class ResourceShowPage extends React.Component {
     }
   }
 
+  handleClick = (event) => {
+    event.persist();
+    this.props.history.goBack()
+  }
+
   render() {
     return (this.props.currentUser ? (
       <div>
+        <Breadcrumb>
+          <Breadcrumb.Section onClick={this.handleClick}>Back</Breadcrumb.Section>
+        </Breadcrumb>
         <br></br>
         <h1>{this.findCurrentResource() ? this.findCurrentResource()[0].name : null}</h1>
         <Card

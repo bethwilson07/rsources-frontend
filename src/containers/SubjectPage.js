@@ -1,9 +1,9 @@
 import React from 'react';
 import CourseCard from '../components/CourseCard'
-import {Grid, Card, Image} from 'semantic-ui-react'
+import {Grid, Card, Image, Breadcrumb} from 'semantic-ui-react'
 import {connect} from 'react-redux'
 import {fetchingSubjects, fetchingCourses} from '../redux/actions'
-import {Redirect, withRouter, Link} from 'react-router-dom'
+import {Redirect, withRouter, Link, NavLink} from 'react-router-dom'
 
 class SubjectPage extends React.Component {
 
@@ -35,6 +35,11 @@ class SubjectPage extends React.Component {
   render() {
     return (this.props.currentUser ? (
       <div>
+        <Breadcrumb>
+          <Breadcrumb.Section as={NavLink} to="/home">Home</Breadcrumb.Section>
+          <Breadcrumb.Divider icon='right angle' />
+          <Breadcrumb.Section>{this.getCurrentSubjectName()}</Breadcrumb.Section>
+        </Breadcrumb>
         <br></br>
         <h1>{this.getCurrentSubjectName()}</h1>
         <Grid>

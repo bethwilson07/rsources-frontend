@@ -3,7 +3,8 @@ import ResourceContainer from './ResourceContainer';
 import PostContainer from './PostContainer';
 import {fetchingCourses} from '../redux/actions'
 import {connect} from 'react-redux'
-import {Redirect} from 'react-router-dom'
+import {Breadcrumb} from 'semantic-ui-react'
+import {Redirect, NavLink} from 'react-router-dom'
 
 class CourseShowPage extends React.Component {
 
@@ -11,10 +12,18 @@ class CourseShowPage extends React.Component {
     this.props.dispatch(fetchingCourses());
   }
 
-  getCurrentCourseName() {
+  getCurrentCourse() {
     if (this.props.courses[0]){
-      return this.props.courses.find(c => c.id === parseInt(this.props.match.params.id)).name;
+      return this.props.courses.find(c => c.id === parseInt(this.props.match.params.id))
     } else {
+      return null;
+    }
+  }
+
+  getCurrentSubject() {
+    if(this.props.courses[0]){
+      return this.props.courses.find(c => c.id === parseInt(this.props.match.params.id)).subject
+    }else {
       return null;
     }
   }
@@ -22,8 +31,16 @@ class CourseShowPage extends React.Component {
   render() {
     return (this.props.currentUser ? (
       <div>
+        <Breadcrumb>
+          <Breadcrumb.Section as={NavLink} to="/home">Home</Breadcrumb.Section>
+          <Breadcrumb.Divider icon='right angle' />
+          <Breadcrumb.Section as={NavLink} to={`/subject/${this.getCurrentSubject().id}`}>
+            {this.getCurrentSubject().name}</Breadcrumb.Section>
+          <Breadcrumb.Divider icon='right angle' />
+          <Breadcrumb.Section>{this.getCurrentCourse().name}</Breadcrumb.Section>
+        </Breadcrumb>
         <br></br>
-        <h1>{this.getCurrentCourseName()}</h1>
+        <h1>{this.getCurrentCourse().name}</h1>
         <ResourceContainer courseId={parseInt(this.props.match.params.id)}/>
         <PostContainer />
       </div>)
@@ -35,6 +52,7 @@ class CourseShowPage extends React.Component {
 const mapStateToProps = state => {
   return {
     courses: state.courses,
+    subjects: state.courses
   }
 }
 
