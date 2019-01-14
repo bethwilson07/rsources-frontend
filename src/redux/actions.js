@@ -51,6 +51,52 @@ const fetchingResources = () => {
   }
 }
 
+///////////////////////////////////////////
 
+const addCourse = (course) => {
+  return {type: "ADD_COURSE", course}
+}
 
-export {fetchingSubjects, fetchingCourses, fetchingResources};
+const addingCourse = (data) => {
+  return (dispatch) => {
+    dispatch(addCourse(data))
+    fetch(`http://localhost:3000/courses`, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(newCourse => {
+      dispatch(addCourse(newCourse))
+    })
+  }
+}
+
+///////////////////////////////////////////////////
+
+const addResource = (resource) => {
+  return {type:"ADD_RESOURCE", resource}
+}
+
+const postingResource = (data) => {
+  return (dispatch) => {
+    dispatch(addResource(data))
+    fetch("http://localhost:3000/resources", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+      .then(res=>res.json())
+      .then(newResource => {
+        dispatch(addResource(newResource))
+      })
+  }
+}
+
+export {fetchingSubjects, fetchingCourses, fetchingResources, addingCourse, postingResource};

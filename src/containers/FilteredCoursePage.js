@@ -78,7 +78,15 @@ class FilteredCoursePage extends React.Component {
         <h1>{this.makePageTitle(this.props.match.params.name)}</h1>
         <br></br>
         {this.getTypeOfResource().map(r => <Resource key={r.id} resource={r}/>)}
-        <NewResourceForm />
+        <h4>Want to add a {this.props.match.params.name.split("_").join(" ")}?</h4>
+        <NewResourceForm
+          resource={this.getTypeOfResource()}
+          history={this.props.history}
+          course={this.getCurrentCourse()}
+          type={this.props.match.params.name}
+          userId={this.props.currentUser.id}
+          courseId={parseInt(this.props.match.params.id)}
+          />
       </div> )
       : <Redirect to="/login" />)
   }

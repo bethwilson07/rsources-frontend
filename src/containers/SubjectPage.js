@@ -1,5 +1,6 @@
 import React from 'react';
 import CourseCard from '../components/CourseCard'
+import NewCourseForm from '../components/NewCourseForm'
 import {Grid, Card, Image, Breadcrumb} from 'semantic-ui-react'
 import {connect} from 'react-redux'
 import {fetchingSubjects, fetchingCourses} from '../redux/actions'
@@ -32,6 +33,10 @@ class SubjectPage extends React.Component {
     }
   }
 
+  getCurrentSubjectId() {
+    return parseInt(this.props.match.params.id)
+  }
+
   render() {
     return (this.props.currentUser ? (
       <div>
@@ -53,6 +58,12 @@ class SubjectPage extends React.Component {
               <CourseCard key={c.id} course={c}/></Link>)}
           </Grid.Row>
         </Grid>
+        Don't see your particular {this.getCurrentSubjectName()} course?
+        <NewCourseForm
+          subjectName={this.getCurrentSubjectName()}
+          subjectId={this.getCurrentSubjectId()}
+          currentUser={this.props.currentUser}
+          />
       </div>)
      : <Redirect to="/login" />)
   }

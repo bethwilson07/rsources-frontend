@@ -13,8 +13,8 @@ const coursesReducer = (state = [], action) => {
   switch(action.type) {
     case "FETCHED_COURSES":
       return action.courses
-    // case "ADD_COURSE":
-      // return [...state, action.course]
+    case "ADD_COURSE":
+      return [...state, action.course]
     default:
       return state;
   }
@@ -23,7 +23,9 @@ const coursesReducer = (state = [], action) => {
 const resourcesReducer = (state = [], action) => {
   switch(action.type) {
     case "FETCHED_RESOURCES":
-      return action.resources
+      return action.resources;
+    case "ADD_RESOURCE":
+      return [...state, action.resource]
     default:
       return state;
   }
