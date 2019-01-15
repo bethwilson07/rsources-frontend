@@ -57,7 +57,7 @@ class NewResourceForm extends React.Component {
           onClose={this.handleClick}
           centered={false}
           >
-          <Modal.Header>{`Contribute a ${this.props.course.name} ${this.getResourceType()}!`}</Modal.Header>
+          <Modal.Header>{this.getResourceType() ? `Contribute a ${this.props.course.name} ${this.getResourceType()}!` : `Contribute a ${this.props.course.name} Resource!`}</Modal.Header>
           <Modal.Content>
             <Form>
               <Form.Field required

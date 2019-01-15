@@ -63,6 +63,7 @@ class SubjectPage extends React.Component {
           subjectName={this.getCurrentSubjectName()}
           subjectId={this.getCurrentSubjectId()}
           currentUser={this.props.currentUser}
+          history={this.props.history}
           />
       </div>)
      : <Redirect to="/login" />)

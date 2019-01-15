@@ -83,7 +83,6 @@ const addResource = (resource) => {
 
 const postingResource = (data) => {
   return (dispatch) => {
-    dispatch(addResource(data))
     fetch("http://localhost:3000/resources", {
       method: "POST",
       headers: {

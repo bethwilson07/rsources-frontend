@@ -1,4 +1,5 @@
 import React from 'react';
+import SignUp from './SignUp'
 import {withRouter} from 'react-router-dom'
 import {Button, Divider, Form, Grid, Segment} from 'semantic-ui-react'
 
@@ -60,7 +61,7 @@ class Login extends React.Component {
             </Grid.Column>
 
             <Grid.Column verticalAlign='middle'>
-              <Button content='Sign up' icon='signup' size='big' />
+              <SignUp history={this.props.history}/>
             </Grid.Column>
           </Grid>
 

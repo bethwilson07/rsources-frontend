@@ -24,13 +24,14 @@ class NewCourseForm extends React.Component {
     event.preventDefault();
     let data = {
       name: this.state.name,
-      subject_id: this.props.subject_id
+      subject_id: this.props.subjectId
     }
     this.props.dispatch(addingCourse(data));
     this.setState({
       name: '',
     });
     this.handleClick();
+    this.props.history.push(`/subject/${this.props.subjectId}`)
   }
 
   render() {

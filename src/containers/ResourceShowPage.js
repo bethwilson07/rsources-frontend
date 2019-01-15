@@ -37,7 +37,7 @@ class ResourceShowPage extends React.Component {
           header={this.findCurrentResource() ? this.findCurrentResource()[0].name : null}
           meta={this.findCurrentResource() ? this.findCurrentResource()[0].resource_type : null}
           description={this.findCurrentResource() ? this.findCurrentResource()[0].description : null}
-        />
+        ></Card>
       </div>)
       : <Redirect to="/login" />)
   }
