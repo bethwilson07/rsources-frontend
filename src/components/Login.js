@@ -61,7 +61,7 @@ class Login extends React.Component {
             </Grid.Column>
 
             <Grid.Column verticalAlign='middle'>
-              <SignUp history={this.props.history}/>
+              <SignUp setCurrentUser={this.props.setCurrentUser} history={this.props.history}/>
             </Grid.Column>
           </Grid>
 

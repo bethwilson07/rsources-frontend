@@ -16,7 +16,8 @@ class SignUp extends React.Component {
     this.setState({ [name]: value });
   };
 
-  handleSubmit = () => {
+  handleSubmit = (e) => {
+    e.preventDefault()
     fetch('http://localhost:3000/users', {
       method: 'POST',
       headers: {
@@ -25,21 +26,25 @@ class SignUp extends React.Component {
       },
       body: JSON.stringify({
         user: {
-          username: 'newUser',
-          password: 'hello'
+          username: this.state.username,
+          password: this.state.password
         }
       })
-    }).then(r => r.json()).then(console.log)
-    this.setState({
-      username: '',
-      password: ''
-    });
-    this.handleClick();
-    this.props.history.push(`/home`);
+    }).then(r => r.json())
+    .then(data => {
+      if(data.error){
+        alert('Incorrect username or password')
+      }else{
+        console.log(data)
+        this.props.setCurrentUser(data.user_info)
+        localStorage.setItem('token', data.token)
+      }
+    })
+    this.props.history.push('/home')
   };
 
   render() {
-
+    console.log(this.props.history)
     return (
       <div>
         <Modal trigger={<Button onClick={this.handleClick} content='Sign up' icon='signup' size='big' />}

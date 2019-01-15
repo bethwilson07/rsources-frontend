@@ -58,6 +58,7 @@ class App extends Component {
             <Login setCurrentUser={this.setCurrentUser}/> )}
         />
 
+
         <Route exact path='/home' render ={() => {
           return ( <HomePage currentUser={this.state.currentUser}/>)
           }} />
