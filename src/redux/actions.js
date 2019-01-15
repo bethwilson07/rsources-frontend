@@ -59,7 +59,6 @@ const addCourse = (course) => {
 
 const addingCourse = (data) => {
   return (dispatch) => {
-    dispatch(addCourse(data))
     fetch(`http://localhost:3000/courses`, {
       method: "POST",
       headers: {

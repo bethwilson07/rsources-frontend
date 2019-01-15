@@ -35,7 +35,7 @@ class ResourceShowPage extends React.Component {
           className="resources"
           image={this.findCurrentResource() ? this.findCurrentResource()[0].photo : null}
           header={this.findCurrentResource() ? this.findCurrentResource()[0].name : null}
-          meta={this.findCurrentResource() ? this.findCurrentResource()[0].resource_type : null}
+          meta={this.findCurrentResource() ? `${this.findCurrentResource()[0].resource_type.split('_').join(" ")} submitted by ${this.findCurrentResource()[0].user.username}` : null}
           description={this.findCurrentResource() ? this.findCurrentResource()[0].description : null}
         ></Card>
       </div>)
