@@ -97,4 +97,28 @@ const postingResource = (data) => {
   }
 }
 
-export {fetchingSubjects, fetchingCourses, fetchingResources, addingCourse, postingResource};
+//////////////////////////////////////////////////
+
+const updateResource = (resource) => {
+  return {type: "UPDATE_RESOURCE", resource}
+}
+
+const updatingResource =(data, id) => {
+  return (dispatch) => {
+    fetch(`http://localhost:3000/resources/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(data)
+    }).then(res => res.json())
+    .then(newResource => {
+      dispatch(updateResource(newResource))
+    })
+  }
+}
+
+/////////////////////////////////////////////////
+
+export {fetchingSubjects, fetchingCourses, fetchingResources, addingCourse, postingResource, updatingResource};

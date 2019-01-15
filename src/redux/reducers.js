@@ -26,6 +26,14 @@ const resourcesReducer = (state = [], action) => {
       return action.resources;
     case "ADD_RESOURCE":
       return [...state, action.resource]
+    case "UPDATE_RESOURCE":
+      return state.map(r => {
+       if (r.id === action.resource.id) {
+         return action.resource;
+       } else {
+         return r;
+       }
+     })
     default:
       return state;
   }
