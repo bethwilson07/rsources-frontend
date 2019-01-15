@@ -121,4 +121,19 @@ const updatingResource =(data, id) => {
 
 /////////////////////////////////////////////////
 
-export {fetchingSubjects, fetchingCourses, fetchingResources, addingCourse, postingResource, updatingResource};
+const deleteResource = (resource) => {
+  return {type: "DELETE_RESOURCE", resource}
+}
+
+const deletingResource = (id) => {
+  return (dispatch) => {
+    fetch(`http://localhost:3000/resources/${id}`, {
+      method: "DELETE"})
+      .then(res => res.json())
+      .then(resource => {
+        dispatch(deleteResource(resource))
+      })
+  }
+}
+
+export {fetchingSubjects, fetchingCourses, fetchingResources, addingCourse, postingResource, updatingResource, deletingResource};

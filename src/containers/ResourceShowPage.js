@@ -39,7 +39,7 @@ class ResourceShowPage extends React.Component {
           meta={this.findCurrentResource() ? `${this.findCurrentResource()[0].resource_type.split('_').join(" ")} submitted by ${this.findCurrentResource()[0].user.username}` : null}
           description={this.findCurrentResource() ? this.findCurrentResource()[0].description : null}
         ></Card>
-      {this.findCurrentResource()[0].user.id === this.props.currentUser.id ? <UpdateResource currentUser={this.props.currentUser} resource={this.findCurrentResource()}/> : null}
+      {this.findCurrentResource()[0].user.id === this.props.currentUser.id ? <UpdateResource history={this.props.history} currentUser={this.props.currentUser} resource={this.findCurrentResource()}/> : null}
       </div>)
       : <Redirect to="/login" />)
   }

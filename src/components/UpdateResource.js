@@ -1,7 +1,7 @@
 import React from 'react';
 import {Modal, Button, Form} from 'semantic-ui-react'
 import {connect} from 'react-redux'
-import {updatingResource} from '../redux/actions'
+import {updatingResource, deletingResource} from '../redux/actions'
 
 class UpdateResource extends React.Component {
 
@@ -36,9 +36,13 @@ class UpdateResource extends React.Component {
     this.handleClick();
   }
 
+  removeResource = (resourceId) => {
+    this.props.dispatch(deletingResource(resourceId))
+    this.handleClick();
+    this.props.history.push(`/course/${this.props.resource[0].course_id}/resources/${this.props.resource[0].resource_type}`)
+  }
 
   render() {
-    console.log(this.props.resource[0].name)
     return (
       <div>
         <Modal trigger={<Button onClick={this.handleClick}>Update Resource</Button>}
@@ -67,7 +71,7 @@ class UpdateResource extends React.Component {
               </Modal.Description>
               <Modal.Actions>
                 <Form.Button onClick={(event)=>this.handleSubmit(event)} type="submit">Submit</Form.Button>
-                <Form.Button>Delete Resource</Form.Button>
+                <Form.Button onClick={() => this.removeResource(this.props.resource[0].id)}>Delete Resource</Form.Button>
               </Modal.Actions>
             </Form>
           </Modal.Content>
