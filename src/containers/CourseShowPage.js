@@ -42,7 +42,7 @@ class CourseShowPage extends React.Component {
         <br></br>
         <h1>{this.getCurrentCourse().name}</h1>
         <ResourceContainer courseId={parseInt(this.props.match.params.id)}/>
-        <PostContainer />
+        <PostContainer match={this.props.match} currentUser={this.props.currentUser}/>
       </div>)
      : <Redirect to="/login" />)
   }

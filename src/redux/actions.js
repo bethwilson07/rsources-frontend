@@ -131,6 +131,27 @@ const fetchingPosts = () => {
   }
 }
 
+const addPost = (post) => {
+  return {type: "ADD_POST", post}
+}
+
+const addingPost = (data) => {
+  return (dispatch) => {
+    fetch(`http://localhost:3000/posts`, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(newPost => {
+      dispatch(addPost(newPost))
+    })
+  }
+}
+
 ///////////////COMMENTS//////////////////
 
 const fetchedComments = (comments) => {
@@ -147,6 +168,27 @@ const fetchingComments = () => {
   }
 }
 
+const addComment = (comment) => {
+  return {type: "ADD_COMMENT", comment}
+}
+
+const addingComment = (data) => {
+  return (dispatch) => {
+    fetch(`http://localhost:3000/comments`, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(newComment => {
+      dispatch(addCourse(newComment))
+    })
+  }
+}
+
 
 export {fetchingSubjects, fetchingCourses, fetchingResources, addingCourse,
-  postingResource, updatingResource, fetchingPosts, fetchingComments};
+  postingResource, updatingResource, fetchingPosts, fetchingComments, addingPost, addingComment};
