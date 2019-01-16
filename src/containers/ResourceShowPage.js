@@ -3,7 +3,7 @@ import UpdateResource from '../components/UpdateResource'
 import {connect} from 'react-redux'
 import {fetchingResources} from '../redux/actions'
 import {Card, Breadcrumb} from 'semantic-ui-react'
-import {Redirect} from 'react-router-dom'
+import {Redirect, withRouter} from 'react-router-dom'
 
 class ResourceShowPage extends React.Component {
 
@@ -50,4 +50,4 @@ const mapStateToProps = state => {
     resources: state.resources
   }
 }
-export default connect(mapStateToProps)(ResourceShowPage);
+export default withRouter(connect(mapStateToProps)(ResourceShowPage));

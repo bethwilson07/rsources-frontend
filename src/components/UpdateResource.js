@@ -3,6 +3,7 @@ import {Modal, Button, Form} from 'semantic-ui-react'
 import {connect} from 'react-redux'
 import {updatingResource, deletingResource} from '../redux/actions'
 
+
 class UpdateResource extends React.Component {
 
   state = {
@@ -43,6 +44,7 @@ class UpdateResource extends React.Component {
   }
 
   render() {
+    console.log(this.props.resource[0].id)
     return (
       <div>
         <Modal trigger={<Button onClick={this.handleClick}>Update Resource</Button>}
@@ -50,7 +52,7 @@ class UpdateResource extends React.Component {
           onClose={this.handleClick}
           centered={false}
           >
-          <Modal.Header>Modal Header</Modal.Header>
+          <Modal.Header>Update Resource</Modal.Header>
           <Modal.Content>
             <Form>
               <Form.Field required
@@ -71,9 +73,9 @@ class UpdateResource extends React.Component {
               </Modal.Description>
               <Modal.Actions>
                 <Form.Button onClick={(event)=>this.handleSubmit(event)} type="submit">Submit</Form.Button>
-                <Form.Button onClick={() => this.removeResource(this.props.resource[0].id)}>Delete Resource</Form.Button>
               </Modal.Actions>
             </Form>
+            <Button onClick={() => this.removeResource(this.props.resource[0].id)}>Delete Resource</Button>
           </Modal.Content>
         </Modal>
         </div>

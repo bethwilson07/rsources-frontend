@@ -4,7 +4,7 @@ import NewResourceForm from '../components/NewResourceForm'
 import {Breadcrumb} from 'semantic-ui-react'
 import {connect} from 'react-redux'
 import {fetchingResources, fetchingCourses} from '../redux/actions'
-import {Redirect, NavLink} from 'react-router-dom'
+import {Redirect, NavLink, withRouter} from 'react-router-dom'
 
 class FilteredCoursePage extends React.Component {
 
@@ -40,6 +40,7 @@ class FilteredCoursePage extends React.Component {
 
   getTypeOfResource() {
     let urlName = this.props.match.params.name
+    console.log(this.filterResources().filter(r => r.resource_type === urlName))
     return this.filterResources().filter(r => r.resource_type === urlName)
   }
 
@@ -99,4 +100,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(FilteredCoursePage);
+export default withRouter(connect(mapStateToProps)(FilteredCoursePage));

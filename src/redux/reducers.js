@@ -15,6 +15,26 @@ const coursesReducer = (state = [], action) => {
       return action.courses
     case "ADD_COURSE":
       return [...state, action.course]
+    case "ADD_RESOURCE":
+        //if the course the the resource belongs to
+        //create a new course that is a copy of the old course, but with this new resource
+        //
+        return state.map(c => {
+          if (c.id === action.resource.course_id) {
+            return {...c, resources: [...c.resources, action.resource]}
+          } else {
+            return c
+          }
+        })
+      case "DELETE_RESOURCE":
+        return state.map(c => {
+          if (c.id === action.resource.course_id) {
+            return {...c, resources:
+              [...c.resources.slice(0, c.resources.indexOf(action.resource)), ...c.resources.slice(c.resources.indexOf(action.resource) + 1)]}
+          } else {
+            return c
+          }
+        })
     default:
       return state;
   }
