@@ -1,3 +1,5 @@
+//////////////Subjects/////////////////////
+
 const fetchedSubjects = (subjects) => {
   return {type: "FETCHED_SUBJECTS", subjects}
 }
@@ -13,7 +15,7 @@ const fetchingSubjects = () => {
   }
 }
 
-//////////////////////////////
+///////////Courses////////////////////
 
 const fetchedCourses = (courses) => {
   return {type: "FETCHED_COURSES", courses}
@@ -29,29 +31,6 @@ const fetchingCourses = () => {
     })
   }
 }
-
-/////////////////////////////////////
-
-const fetchedResources = (resources) => {
-  return {type: "FETCHED_RESOURCES", resources}
-}
-
-const loadingData = () => {
-  return {type: "LOADING_DATA"}
-}
-
-const fetchingResources = () => {
-  return (dispatch) => {
-    dispatch(loadingData())
-    fetch("http://localhost:3000/resources")
-    .then(res => res.json())
-    .then(resources => {
-      dispatch(fetchedResources(resources))
-    })
-  }
-}
-
-///////////////////////////////////////////
 
 const addCourse = (course) => {
   return {type: "ADD_COURSE", course}
@@ -74,7 +53,26 @@ const addingCourse = (data) => {
   }
 }
 
-///////////////////////////////////////////////////
+////////////////Resources//////////////////
+
+const fetchedResources = (resources) => {
+  return {type: "FETCHED_RESOURCES", resources}
+}
+
+const loadingData = () => {
+  return {type: "LOADING_DATA"}
+}
+
+const fetchingResources = () => {
+  return (dispatch) => {
+    dispatch(loadingData())
+    fetch("http://localhost:3000/resources")
+    .then(res => res.json())
+    .then(resources => {
+      dispatch(fetchedResources(resources))
+    })
+  }
+}
 
 const addResource = (resource) => {
   return {type:"ADD_RESOURCE", resource}
@@ -97,8 +95,6 @@ const postingResource = (data) => {
   }
 }
 
-//////////////////////////////////////////////////
-
 const updateResource = (resource) => {
   return {type: "UPDATE_RESOURCE", resource}
 }
@@ -119,6 +115,38 @@ const updatingResource =(data, id) => {
   }
 }
 
-/////////////////////////////////////////////////
+////////////////POSTS///////////////////
 
-export {fetchingSubjects, fetchingCourses, fetchingResources, addingCourse, postingResource, updatingResource};
+const fetchedPosts = (posts) => {
+  return {type: "FETCHED_POSTS", posts}
+}
+
+const fetchingPosts = () => {
+  return (dispatch) => {
+    fetch("http://localhost:3000/posts")
+    .then(res => res.json())
+    .then(posts => {
+      dispatch(fetchedPosts(posts))
+    })
+  }
+}
+
+///////////////COMMENTS//////////////////
+
+const fetchedComments = (comments) => {
+  return {type: "FETCHED_COMMENTS", comments}
+}
+
+const fetchingComments = () => {
+  return (dispatch) => {
+    fetch("http://localhost:3000/comments")
+    .then(res => res.json())
+    .then(comments => {
+      dispatch(fetchedPosts(comments))
+    })
+  }
+}
+
+
+export {fetchingSubjects, fetchingCourses, fetchingResources, addingCourse,
+  postingResource, updatingResource, fetchingPosts, fetchingComments};
