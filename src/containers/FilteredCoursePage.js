@@ -9,8 +9,10 @@ import {Redirect, NavLink, withRouter} from 'react-router-dom'
 class FilteredCoursePage extends React.Component {
 
   componentDidMount() {
-    this.props.dispatch(fetchingResources());
-    this.props.dispatch(fetchingCourses())
+    if(this.props.courses.length === 0 && this.props.resources.length === 0) {
+      this.props.dispatch(fetchingResources());
+      this.props.dispatch(fetchingCourses())
+    }
   }
 
   getCurrentCourse() {
@@ -40,7 +42,6 @@ class FilteredCoursePage extends React.Component {
 
   getTypeOfResource() {
     let urlName = this.props.match.params.name
-    console.log(this.filterResources().filter(r => r.resource_type === urlName))
     return this.filterResources().filter(r => r.resource_type === urlName)
   }
 
