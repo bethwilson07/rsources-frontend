@@ -61,11 +61,35 @@ const resourcesReducer = (state = [], action) => {
   }
 }
 
+const postsReducer = (state = [], action) => {
+  switch (action.type) {
+    case "FETCHED_POSTS":
+      return action.posts
+    case "ADD_POST":
+      return [...state, action.post]
+    default:
+      return state;
+  }
+}
+
+const commentsReducer = (state =[], action) => {
+  switch(action.type) {
+    case "FETCHED_COMMENTS":
+      return action.comments
+    case "ADD_COMMENT":
+      return [...state, action.comment]
+    default:
+      return state;
+  }
+}
+
 
 const rootReducer = combineReducers({
   subjects: subjectsReducer,
   courses: coursesReducer,
-  resources: resourcesReducer
+  resources: resourcesReducer,
+  posts: postsReducer,
+  comments: commentsReducer
 });
 
 export default rootReducer;

@@ -90,3 +90,14 @@
   margin-top: 10px;
   margin-bottom: 30px;
 }
+
+.ui.feed.event {
+  padding-left: 4rem;
+  padding-right: 4rem;
+  margin-bottom: 3rem;
+}
+
+.content.post {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}

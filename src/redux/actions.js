@@ -1,3 +1,5 @@
+//////////////Subjects/////////////////////
+
 const fetchedSubjects = (subjects) => {
   return {type: "FETCHED_SUBJECTS", subjects}
 }
@@ -13,7 +15,7 @@ const fetchingSubjects = () => {
   }
 }
 
-//////////////////////////////
+///////////Courses////////////////////
 
 const fetchedCourses = (courses) => {
   return {type: "FETCHED_COURSES", courses}
@@ -29,29 +31,6 @@ const fetchingCourses = () => {
     })
   }
 }
-
-/////////////////////////////////////
-
-const fetchedResources = (resources) => {
-  return {type: "FETCHED_RESOURCES", resources}
-}
-
-const loadingData = () => {
-  return {type: "LOADING_DATA"}
-}
-
-const fetchingResources = () => {
-  return (dispatch) => {
-    dispatch(loadingData())
-    fetch("http://localhost:3000/resources")
-    .then(res => res.json())
-    .then(resources => {
-      dispatch(fetchedResources(resources))
-    })
-  }
-}
-
-///////////////////////////////////////////
 
 const addCourse = (course) => {
   return {type: "ADD_COURSE", course}
@@ -74,7 +53,26 @@ const addingCourse = (data) => {
   }
 }
 
-///////////////////////////////////////////////////
+////////////////Resources//////////////////
+
+const fetchedResources = (resources) => {
+  return {type: "FETCHED_RESOURCES", resources}
+}
+
+const loadingData = () => {
+  return {type: "LOADING_DATA"}
+}
+
+const fetchingResources = () => {
+  return (dispatch) => {
+    dispatch(loadingData())
+    fetch("http://localhost:3000/resources")
+    .then(res => res.json())
+    .then(resources => {
+      dispatch(fetchedResources(resources))
+    })
+  }
+}
 
 const addResource = (resource) => {
   return {type:"ADD_RESOURCE", resource}
@@ -97,8 +95,6 @@ const postingResource = (data) => {
   }
 }
 
-//////////////////////////////////////////////////
-
 const updateResource = (resource) => {
   return {type: "UPDATE_RESOURCE", resource}
 }
@@ -119,8 +115,6 @@ const updatingResource =(data, id) => {
   }
 }
 
-/////////////////////////////////////////////////
-
 const deleteResource = (resource) => {
   return {type: "DELETE_RESOURCE", resource}
 }
@@ -136,4 +130,81 @@ const deletingResource = (id) => {
   }
 }
 
-export {fetchingSubjects, fetchingCourses, fetchingResources, addingCourse, postingResource, updatingResource, deletingResource};
+////////////////POSTS///////////////////
+
+const fetchedPosts = (posts) => {
+  return {type: "FETCHED_POSTS", posts}
+}
+
+const fetchingPosts = () => {
+  return (dispatch) => {
+    fetch("http://localhost:3000/posts")
+    .then(res => res.json())
+    .then(posts => {
+      dispatch(fetchedPosts(posts))
+    })
+  }
+}
+
+const addPost = (post) => {
+  return {type: "ADD_POST", post}
+}
+
+const addingPost = (data) => {
+  return (dispatch) => {
+    fetch(`http://localhost:3000/posts`, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(newPost => {
+      dispatch(addPost(newPost))
+    })
+  }
+}
+
+///////////////COMMENTS//////////////////
+
+const fetchedComments = (comments) => {
+  return {type: "FETCHED_COMMENTS", comments}
+}
+
+const fetchingComments = () => {
+  return (dispatch) => {
+    fetch("http://localhost:3000/comments")
+    .then(res => res.json())
+    .then(comments => {
+      dispatch(fetchedPosts(comments))
+    })
+  }
+}
+
+const addComment = (comment) => {
+  return {type: "ADD_COMMENT", comment}
+}
+
+const addingComment = (data) => {
+  return (dispatch) => {
+    fetch(`http://localhost:3000/comments`, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(newComment => {
+      dispatch(addCourse(newComment))
+    })
+  }
+}
+
+
+export {fetchingSubjects, fetchingCourses, fetchingResources, addingCourse,
+  postingResource, updatingResource, deletingResource,
+  fetchingPosts, fetchingComments, addingPost, addingComment};
