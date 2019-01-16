@@ -1,16 +1,15 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import PostBox from '../components/PostBox'
 import NewPostForm from '../components/NewPostForm';
 import {connect} from 'react-redux'
-import {fetchingPosts, fetchingComments} from '../redux/actions'
-import {Feed, Header} from 'semantic-ui-react'
+import {fetchingPosts} from '../redux/actions'
+import {Container, Header} from 'semantic-ui-react'
 
 
 class PostContainer extends React.Component {
 
   componentDidMount () {
-    this.props.dispatch(fetchingPosts());
-    this.props.dispatch(fetchingComments());
+    this.props.dispatch(fetchingPosts())
   }
 
   getCoursePosts () {
@@ -18,26 +17,23 @@ class PostContainer extends React.Component {
   }
 
   render() {
-    console.log(this.getCoursePosts())
+    console.log(this.props.comments)
     return (
-      <Fragment>
+      <Container textAlign="center">
         <Header as="h3">POST FEED</Header>
         <NewPostForm currentUser={this.props.currentUser} courseId={parseInt(this.props.match.params.id)}/>
-        <Feed>
-          <Feed.Event className="post">
-            {this.getCoursePosts() ? this.getCoursePosts().map(p => <PostBox key={p.id} post={p}/>) : null}
-          </Feed.Event>
-        </Feed>
-
-      </Fragment>
+        <Container>
+          {this.getCoursePosts() ? this.getCoursePosts().map(p => <PostBox
+              key={p.id} post={p} currentUser={this.props.currentUser}/>) : null}
+        </Container>
+      </Container>
     )
   }
 }
 
 const mapStateToProps = state => {
   return {
-    posts: state.posts,
-    comments: state.comments
+    posts: state.posts
   }
 }
 

@@ -178,7 +178,7 @@ const fetchingComments = () => {
     fetch("http://localhost:3000/comments")
     .then(res => res.json())
     .then(comments => {
-      dispatch(fetchedPosts(comments))
+      dispatch(fetchedComments(comments))
     })
   }
 }
@@ -199,7 +199,7 @@ const addingComment = (data) => {
     })
     .then(res => res.json())
     .then(newComment => {
-      dispatch(addCourse(newComment))
+      dispatch(addComment(newComment))
     })
   }
 }
