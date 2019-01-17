@@ -64,6 +64,16 @@ const postsReducer = (state = [], action) => {
       return action.posts
     case "ADD_POST":
       return [...state, action.post]
+    case "UPDATE_POST":
+      return state.map(p => {
+        if (p.id === action.post.id) {
+          return action.post;
+        } else {
+          return p;
+        }
+      })
+    case "DELETE_POST":
+      return state.filter(p => p.id !== action.post.id)
     default:
       return state;
   }
@@ -75,6 +85,16 @@ const commentsReducer = (state =[], action) => {
       return action.comments
     case "ADD_COMMENT":
       return [...state, action.comment]
+    case "UPDATE_COMMENT":
+      return state.map(c => {
+        if (c.id === action.comment.id) {
+          return action.comment
+        } else {
+          return c;
+        }
+      })
+    case "DELETE_COMMENT":
+      return state.filter(c => c.id !== action.comment.id)
     default:
       return state;
   }

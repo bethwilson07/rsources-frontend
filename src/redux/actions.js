@@ -167,6 +167,42 @@ const addingPost = (data) => {
   }
 }
 
+const updatePost = (post) => {
+  return {type: "UPDATE_POST", post}
+}
+
+const updatingPost = (data, id) => {
+  return (dispatch) => {
+    fetch(`http://localhost:3000/posts/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(data)
+    }).then(res => res.json())
+    .then(post => {
+      dispatch(updatePost(post))
+    })
+  }
+}
+
+const deletePost = (post) => {
+  return {type: "DELETE_POST", post}
+}
+
+const deletingPost = (id) => {
+  return (dispatch) => {
+    fetch(`http://localhost:3000/posts/${id}`, {
+      method: "DELETE"})
+      .then(res => res.json())
+      .then(post => {
+        dispatch(deletePost(post))
+      })
+  }
+}
+
+
 ///////////////COMMENTS//////////////////
 
 const fetchedComments = (comments) => {
@@ -204,7 +240,41 @@ const addingComment = (data) => {
   }
 }
 
+const updateComment = (comment) => {
+  return {type: "UPDATE_COMMENT", comment}
+}
+
+const updatingComment = (data, id) => {
+  return (dispatch) => {
+    fetch(`http://localhost:3000/comments/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(data)
+    }).then(res => res.json())
+    .then(comment => {
+      dispatch(updateComment(comment))
+    })
+  }
+}
+
+const deleteComment = (comment) => {
+  return {type: "DELETE_COMMENT", comment}
+}
+
+const deletingComment = (id) => {
+  return (dispatch) => {
+    fetch(`http://localhost:3000/comments/${id}`, {
+      method: "DELETE"})
+      .then(res => res.json())
+      .then(comment => {
+        dispatch(deleteComment(comment))
+      })
+  }
+}
 
 export {fetchingSubjects, fetchingCourses, fetchingResources, addingCourse,
   postingResource, updatingResource, deletingResource,
-  fetchingPosts, fetchingComments, addingPost, addingComment};
+  fetchingPosts, fetchingComments, addingPost, addingComment, updatingPost, deletingPost, updatingComment, deletingComment};

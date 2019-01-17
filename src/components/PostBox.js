@@ -1,6 +1,8 @@
 import React, {Fragment} from 'react';
-import {Segment, Feed, Button} from 'semantic-ui-react'
+import {Segment, Feed} from 'semantic-ui-react'
 import CommentBox from './CommentBox'
+import EditPostForm from './EditPostForm'
+import NewCommentForm from './NewCommentForm'
 import {connect} from 'react-redux'
 import {fetchingComments} from '../redux/actions'
 
@@ -17,24 +19,22 @@ class PostBox extends React.Component {
   render () {
   return (
     <Fragment>
-      <Segment.Group textAlign="center" padded="very">
+      <Segment.Group>
         <Feed>
           <Feed.Event className="post">
             <Feed.Content>
               <Feed.Summary>
                 <Feed.User>{this.props.post.user.username}</Feed.User>
+                <Feed.Date>{this.props.currentUser.id === this.props.post.user_id ? <EditPostForm currentUser={this.props.currentUser} post={this.props.post}/> : null}</Feed.Date>
                 <Feed.Extra text>
                   {this.props.post.content}
                  </Feed.Extra>
-                <Button>Reply</Button>
-                {this.props.currentUser.id === this.props.post.user_id ? <Button control="button">Edit</Button> : null}
               </Feed.Summary>
             </Feed.Content>
           </Feed.Event>
-          <Segment.Group textAlign="center">
             Comments:
             <Segment>{this.getComments().map(c => <CommentBox key={c.id} comment={c} currentUser={this.props.currentUser} />)}</Segment>
-          </Segment.Group>
+            <NewCommentForm currentUser={this.props.currentUser} post={this.props.post}/>
         </Feed>
       </Segment.Group>
     </Fragment>

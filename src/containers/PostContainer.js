@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import PostBox from '../components/PostBox'
 import NewPostForm from '../components/NewPostForm';
 import {connect} from 'react-redux'
 import {fetchingPosts} from '../redux/actions'
-import {Container, Header} from 'semantic-ui-react'
+import {Grid} from 'semantic-ui-react'
 
 
 class PostContainer extends React.Component {
@@ -17,16 +17,16 @@ class PostContainer extends React.Component {
   }
 
   render() {
-    console.log(this.props.comments)
     return (
-      <Container textAlign="center">
-        <Header as="h3">POST FEED</Header>
+      <Fragment>
         <NewPostForm currentUser={this.props.currentUser} courseId={parseInt(this.props.match.params.id)}/>
-        <Container>
-          {this.getCoursePosts() ? this.getCoursePosts().map(p => <PostBox
-              key={p.id} post={p} currentUser={this.props.currentUser}/>) : null}
-        </Container>
-      </Container>
+        <Grid columns={1} textAlign='center'>
+          <Grid.Column>
+              {this.getCoursePosts() ? this.getCoursePosts().map(p => <PostBox
+                  key={p.id} post={p} currentUser={this.props.currentUser}/>) : null}
+          </Grid.Column>
+        </Grid>
+      </Fragment>
     )
   }
 }

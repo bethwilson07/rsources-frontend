@@ -1,5 +1,6 @@
 import React, {Fragment} from 'react';
-import {Feed, Button} from 'semantic-ui-react'
+import {Feed} from 'semantic-ui-react';
+import EditCommentForm from "./EditCommentForm"
 
 class CommentBox extends React.Component {
 
@@ -11,10 +12,11 @@ class CommentBox extends React.Component {
             <Feed.Content>
               <Feed.Summary>
                 <Feed.User>{this.props.comment.user.username}</Feed.User>
+                <Feed.Date>{this.props.currentUser.id === this.props.comment.user_id ? <EditCommentForm currentUser={this.props.currentUser} comment={this.props.comment}/> : null}</Feed.Date>
                 <Feed.Extra text>
                   {this.props.comment.content}
                  </Feed.Extra>
-                {this.props.currentUser.id === this.props.comment.user_id ? <Button control="button">Edit</Button> : null}
+
               </Feed.Summary>
             </Feed.Content>
           </Feed.Event>

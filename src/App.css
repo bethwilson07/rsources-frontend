@@ -82,7 +82,7 @@
 }
 
 .three.column.row.sources {
-  padding-left: 100px;
+  padding-left: 150px;
 }
 
 .ui.card.links{
@@ -91,6 +91,15 @@
   margin-bottom: 30px;
 }
 
-.ui.container {
-  max-width: 300px;
+.ui.segments {
+  margin: auto;
+  max-width: 500px;
+}
+
+.ui.feed {
+  max-width: 500px;
+}
+
+.ui.extra.text {
+  min-width: 500px;
 }
