@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import {Segment, Feed} from 'semantic-ui-react'
+import {Segment, Image, Icon, Feed} from 'semantic-ui-react'
 import CommentBox from './CommentBox'
 import EditPostForm from './EditPostForm'
 import NewCommentForm from './NewCommentForm'
@@ -22,6 +22,9 @@ class PostBox extends React.Component {
       <Segment.Group>
         <Feed>
           <Feed.Event className="post">
+            <Feed.Label>
+              <Image src="http://www.hisdcareerreadiness.org/wp-content/uploads/2015/07/icon-stem-L.png" />
+            </Feed.Label>
             <Feed.Content>
               <Feed.Summary>
                 <Feed.User>{this.props.post.user.username}</Feed.User>
@@ -32,7 +35,7 @@ class PostBox extends React.Component {
               </Feed.Summary>
             </Feed.Content>
           </Feed.Event>
-            Comments:
+            <Icon name="comments outline"/>Comments
             <Segment>{this.getComments().map(c => <CommentBox key={c.id} comment={c} currentUser={this.props.currentUser} />)}</Segment>
             <NewCommentForm currentUser={this.props.currentUser} post={this.props.post}/>
         </Feed>

@@ -36,7 +36,6 @@ class NewPostForm extends React.Component {
   }
 
   render() {
-    console.log(this.props.courseId, this.props.currentUser.id)
     return (
       <div>
         <Modal trigger={<Button onClick={this.handleClick}>New Post</Button>}

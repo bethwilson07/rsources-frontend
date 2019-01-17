@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import {Feed} from 'semantic-ui-react';
+import {Feed, Icon} from 'semantic-ui-react';
 import EditCommentForm from "./EditCommentForm"
 
 class CommentBox extends React.Component {
@@ -9,6 +9,9 @@ class CommentBox extends React.Component {
       <Fragment>
         <Feed>
           <Feed.Event className="comment">
+            <Feed.Label>
+              <Icon name="comment outline" />
+            </Feed.Label>
             <Feed.Content>
               <Feed.Summary>
                 <Feed.User>{this.props.comment.user.username}</Feed.User>
