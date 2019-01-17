@@ -38,7 +38,7 @@ class NewPostForm extends React.Component {
   render() {
     return (
       <div>
-        <Modal trigger={<Button onClick={this.handleClick}>New Post</Button>}
+        <Modal trigger={<Button onClick={this.handleClick}>Create a Post</Button>}
           open={this.state.showModal}
           onClose={this.handleClick}
           centered={false}

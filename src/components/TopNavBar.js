@@ -10,7 +10,7 @@ const TopNavBar =({location: { pathname }, logged_in, setCurrentUser}) => {
   }
 
   return (
-    <Menu pointing secondary>
+    <Menu pointing secondary >
       {logged_in ? (
         <Fragment>
           <Menu.Item

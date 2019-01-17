@@ -2,6 +2,9 @@
   text-align: center;
 }
 
+.ui.pointing.secondary.menu {
+}
+
 .ui.segment.placeholder {
   max-width: 500px;
   margin: auto;

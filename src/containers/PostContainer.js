@@ -19,6 +19,7 @@ class PostContainer extends React.Component {
   render() {
     return (
       <Fragment>
+        Have a question for other teachers? Looking for a resource?
         <NewPostForm currentUser={this.props.currentUser} courseId={parseInt(this.props.match.params.id)}/>
         <Grid columns={1} textAlign='center'>
           <Grid.Column>
