@@ -2,7 +2,33 @@
   text-align: center;
 }
 
-.ui.pointing.secondary.menu {
+.login {
+  background: url("https://s3.amazonaws.com/plantvillage-production-new/images/pics/000/004/454/large/15860491244_e32b72b41b_z.jpg?1425056828");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.ui.segment.login {
+  opacity: 0.8;
+  margin: auto;
+  max-width: 800px;
+  max-height: 400px;
+}
+
+.spacing.top{
+  padding: 50px;
+}
+
+.spacing.bottom {
+  padding: 300px;
+}
+
+.ui.inverted.segment {
+  margin: 0 !important;
+}
+
+.ui.stackable.two.column.grid {
+  opacity: 0.8;
 }
 
 .ui.segment.placeholder {
@@ -18,10 +44,10 @@
 
 .ui.card.home-image {
   margin: auto;
-  margin-top: 5rem;
-  margin-bottom: 5rem;
-  min-width: 500px;
-  min-height: 250px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  min-width: 600px;
+  min-height: 350px;
 }
 .ui.card>.image {
   max-height: 400px;

@@ -1,20 +1,47 @@
 import React from 'react';
 import {Redirect} from 'react-router-dom'
-import {Image, Card} from 'semantic-ui-react'
+import {Image, Card, Container} from 'semantic-ui-react'
+import {connect} from 'react-redux'
+import {fetchingNasa} from '../redux/actions'
 
-const HomePage = ({currentUser}) => currentUser ? (
-      <div>
-        <br></br>
-        <h1>{`Welcome ${currentUser.username}!`}</h1>
-        <Card className="home-image">
-          <Image src='http://www.spaceweek.ie/wp-content/uploads/2017/09/nasa-space-pictures-hd-hd-widescreen-11.jpg' />
-        </Card>
-        <br></br>
-        <div className="quote">
-          <h2><i>"Discovery is seeing what everybody else has seen, and thinking what nobody else has thought."</i></h2>
-          <h3>      ~Albert Szent Gyorgyi</h3>
+class HomePage extends React.Component {
+
+  componentDidMount () {
+    this.props.dispatch(fetchingNasa())
+  }
+
+  render ()  {
+    console.log(this.props.nasa)
+    return (this.props.currentUser ? (
+        <div>
+          <br></br>
+          <h1>{`Welcome ${this.props.currentUser.username}!`}</h1>
+            <div className="quote">
+              <Container>
+              <i>"Discovery is seeing what everybody else has seen, and thinking what nobody else has thought."</i>
+              <br></br>
+              <i>~Albert Szent Gyorgyi</i>
+              </Container>
+            </div>
+          <Card className="home-image">
+            <Image src={this.props.nasa.url} />
+            <Card.Meta>{`copyright: ${this.props.nasa.copyright}, NASA Picture of the Day`}</Card.Meta>
+          </Card>
+          <Container>
+            <h4>Explanation:</h4>
+            <br></br>
+            {this.props.nasa.explanation}
+          </Container>
+          <br></br>
         </div>
-      </div>
-    ) : <Redirect to="/login" />
+      ) : <Redirect to="/login" /> )
+  }
 
-export default HomePage;
+}
+
+const mapStatetoProps = state => {
+  return {
+    nasa: state.nasa
+  }
+}
+export default connect(mapStatetoProps)(HomePage);

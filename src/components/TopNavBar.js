@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
 import {NavLink, withRouter} from 'react-router-dom'
-import {Menu} from 'semantic-ui-react'
+import {Menu, Segment, Image} from 'semantic-ui-react'
 
 const TopNavBar =({location: { pathname }, logged_in, setCurrentUser}) => {
 
@@ -10,12 +10,14 @@ const TopNavBar =({location: { pathname }, logged_in, setCurrentUser}) => {
   }
 
   return (
-    <Menu pointing secondary >
+    <Segment inverted>
+    <Menu inverted pointing secondary >
       {logged_in ? (
         <Fragment>
-          <Menu.Item
-            name="RSources"
-          />
+          <Menu.Item>
+            <Image size="mini" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQr5MlQSabEAmq62sTDJhrd4UoFI43GXlvHF5xc4qm1EjKEYiVw"/>
+            RSources
+        </Menu.Item>
           <Menu.Item
             as={NavLink}
             to="/home"
@@ -32,6 +34,7 @@ const TopNavBar =({location: { pathname }, logged_in, setCurrentUser}) => {
             as={NavLink}
             to="/subject/2"
             name="Tech"
+            color="green"
             active={pathname === "/subject/2"}
             />
           <Menu.Item
@@ -51,14 +54,24 @@ const TopNavBar =({location: { pathname }, logged_in, setCurrentUser}) => {
           </Menu.Menu>
         </Fragment>
       ) : (
-        <Menu.Item
-          as={NavLink}
-          to="/login"
-          name="Rsources Login"
-          active={pathname === "/login"}
-        />
+        <Fragment>
+          <Menu.Item>
+            <Image size="mini"src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQr5MlQSabEAmq62sTDJhrd4UoFI43GXlvHF5xc4qm1EjKEYiVw"/>
+            RSources
+          </Menu.Item>
+          <Menu.Item
+            as={NavLink}
+            to="/login"
+            name="Login"
+            active={pathname === "/login"}
+          />
+          <Menu.Menu position="right">
+            <Menu.Item name="Access Teaching Resources from STEM Instructors Across the Nation" />
+          </Menu.Menu>
+      </Fragment>
       )}
     </Menu>
+    </Segment>
   );
 };
 

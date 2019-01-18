@@ -1,5 +1,14 @@
 import { combineReducers } from "redux";
 
+const nasaReducer = (state = [], action) => {
+  switch (action.type) {
+    case "NASA_APOD":
+      return action.nasa
+    default:
+      return state;
+  }
+}
+
 const subjectsReducer = (state = [], action) => {
   switch(action.type) {
     case "FETCHED_SUBJECTS":
@@ -106,7 +115,8 @@ const rootReducer = combineReducers({
   courses: coursesReducer,
   resources: resourcesReducer,
   posts: postsReducer,
-  comments: commentsReducer
+  comments: commentsReducer,
+  nasa: nasaReducer
 });
 
 export default rootReducer;

@@ -1,3 +1,19 @@
+//////////////NASA/////////////////////////
+
+const fetchedNasa = (nasa) => {
+  return {type: "NASA_APOD", nasa}
+}
+
+const fetchingNasa = () => {
+  return (dispatch) => {
+    fetch("https://api.nasa.gov/planetary/apod?api_key=vhvO5hX7Qlfnix7wsObVQTgK4tTNKNReGsph6L6o")
+      .then(res=> res.json())
+      .then(data => {
+        dispatch(fetchedNasa(data))
+      })
+  }
+}
+
 //////////////Subjects/////////////////////
 
 const fetchedSubjects = (subjects) => {
@@ -275,6 +291,6 @@ const deletingComment = (id) => {
   }
 }
 
-export {fetchingSubjects, fetchingCourses, fetchingResources, addingCourse,
+export {fetchingNasa, fetchingSubjects, fetchingCourses, fetchingResources, addingCourse,
   postingResource, updatingResource, deletingResource,
   fetchingPosts, fetchingComments, addingPost, addingComment, updatingPost, deletingPost, updatingComment, deletingComment};

@@ -38,6 +38,7 @@ class SubjectPage extends React.Component {
   }
 
   render() {
+    console.log(this.props)
     return (this.props.currentUser ? (
       <div>
         <Breadcrumb>

@@ -39,24 +39,27 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div>
-        <Segment placeholder>
-          <Grid columns={2} stackable>
+        <div className="login">
+          <div className="spacing top">
+          </div>
+        <Segment className="login">
+          <Grid columns={2}>
             <Grid.Column>
+              <h2>Already Have an Account?</h2>
               <Form onSubmit={this.handleLoginSubmit}>
-                <Form.Input icon='user' iconPosition='left' label="username"
+                <Form.Input icon='user' iconPosition='left' label="Username"
                 placeholder="username"
                 name="username"
                 onChange={this.handleChange}
                 value={this.state.username} />
                 <Form.Input icon='lock' iconPosition='left' type="password"
-                label="password"
+                label="Password"
                 placeholder="password"
                 name="password"
                 onChange={this.handleChange}
                 value={this.state.password} />
 
-              <Button content='Login' type="submit" primary />
+              <Button content='Login' type="submit" color="black" />
               </Form>
             </Grid.Column>
 
@@ -64,9 +67,11 @@ class Login extends React.Component {
               <SignUp setCurrentUser={this.props.setCurrentUser} history={this.props.history}/>
             </Grid.Column>
           </Grid>
-
           <Divider vertical>Or</Divider>
+
         </Segment>
+        <div className="spacing bottom">
+        </div>
       </div>
     )
   }

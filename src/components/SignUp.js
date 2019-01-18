@@ -47,27 +47,28 @@ class SignUp extends React.Component {
     console.log(this.props.history)
     return (
       <div>
-        <Modal trigger={<Button onClick={this.handleClick} content='Sign up' icon='signup' size='big' />}
+        <h2>Join the Movement!</h2>
+        <Modal trigger={<Button onClick={this.handleClick} color="green"content='Sign up' icon='signup' size='medium' />}
           open={this.state.showModal}
           onClose={this.handleClick}
           centered={false}
           >
-          <Modal.Header>Sign Up</Modal.Header>
+          <Modal.Header>Sign Up to Access our Teaching Resources!</Modal.Header>
           <Modal.Content>
             <Form onSubmit={this.handleLoginSubmit}>
-              <Form.Input icon='user' iconPosition='left' label="username"
+              <Form.Input icon='user' iconPosition='left' label="Username"
               placeholder="username"
               name="username"
               onChange={this.handleChange}
               value={this.state.username} />
               <Form.Input icon='lock' iconPosition='left' type="password"
-              label="password"
+              label="Password"
               placeholder="password"
               name="password"
               onChange={this.handleChange}
               value={this.state.password} />
               <Modal.Actions>
-                <Form.Button onClick={(event)=>this.handleSubmit(event)} type="submit">Sign Up</Form.Button>
+                <Form.Button onClick={(event)=>this.handleSubmit(event)} color="green" type="submit">Sign Up</Form.Button>
               </Modal.Actions>
             </Form>
           </Modal.Content>
