@@ -3,9 +3,19 @@
 }
 
 .login {
-  background: url("https://s3.amazonaws.com/plantvillage-production-new/images/pics/000/004/454/large/15860491244_e32b72b41b_z.jpg?1425056828");
+  background: url("https://pi.tedcdn.com/r/tedideas.files.wordpress.com/2017/06/featured_art_solarsystemswater.jpg?");
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.not {
+  background: url("https://pi.tedcdn.com/r/tedideas.files.wordpress.com/2017/06/featured_art_solarsystemswater.jpg?");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.footer {
+  padding: 100px 0 0px 0;
 }
 
 .ui.segment.login {

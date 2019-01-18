@@ -1,7 +1,7 @@
 import React from 'react';
 import CourseCard from '../components/CourseCard'
 import NewCourseForm from '../components/NewCourseForm'
-import {Grid, Card, Image, Breadcrumb} from 'semantic-ui-react'
+import {Grid, Card, Image, Segment, Breadcrumb} from 'semantic-ui-react'
 import {connect} from 'react-redux'
 import {fetchingSubjects, fetchingCourses} from '../redux/actions'
 import {Redirect, withRouter, Link, NavLink} from 'react-router-dom'
@@ -66,6 +66,11 @@ class SubjectPage extends React.Component {
           currentUser={this.props.currentUser}
           history={this.props.history}
           />
+          <div className="footer">
+            <Segment inverted color="black">
+            copyright 2019 Rsources
+            </Segment>
+          </div>
       </div>)
      : <Redirect to="/login" />)
   }

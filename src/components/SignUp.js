@@ -48,7 +48,7 @@ class SignUp extends React.Component {
     return (
       <div>
         <h2>Join the Movement!</h2>
-        <Modal trigger={<Button onClick={this.handleClick} color="green"content='Sign up' icon='signup' size='medium' />}
+        <Modal trigger={<Button onClick={this.handleClick} color="blue"content='Sign up' icon='signup' size='medium' />}
           open={this.state.showModal}
           onClose={this.handleClick}
           centered={false}
@@ -68,7 +68,7 @@ class SignUp extends React.Component {
               onChange={this.handleChange}
               value={this.state.password} />
               <Modal.Actions>
-                <Form.Button onClick={(event)=>this.handleSubmit(event)} color="green" type="submit">Sign Up</Form.Button>
+                <Form.Button onClick={(event)=>this.handleSubmit(event)} color="blue" type="submit">Sign Up</Form.Button>
               </Modal.Actions>
             </Form>
           </Modal.Content>

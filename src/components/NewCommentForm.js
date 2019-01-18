@@ -38,7 +38,7 @@ class NewCommentForm extends React.Component {
   render() {
     return (
       <div>
-        <Modal trigger={<Button onClick={this.handleClick} compact>Add Comment</Button>}
+        <Modal trigger={<Button color="blue" onClick={this.handleClick} compact>Add Comment</Button>}
           open={this.state.showModal}
           onClose={this.handleClick}
           centered={false}

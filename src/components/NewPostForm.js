@@ -38,7 +38,8 @@ class NewPostForm extends React.Component {
   render() {
     return (
       <div>
-        <Modal trigger={<Button onClick={this.handleClick} inverted>Create a Post</Button>}
+        <br></br>
+        <Modal trigger={<Button onClick={this.handleClick} color="blue" compact>Create a Post</Button>}
           open={this.state.showModal}
           onClose={this.handleClick}
           centered={false}
@@ -53,7 +54,7 @@ class NewPostForm extends React.Component {
               value={this.state.content}
               control='input' />
               <Modal.Actions>
-                <Form.Button onClick={(event)=>this.handleSubmit(event)} type="submit">Submit Post</Form.Button>
+                <Form.Button onClick={(event)=>this.handleSubmit(event)} color="black" type="submit">Submit Post</Form.Button>
               </Modal.Actions>
             </Form>
           </Modal.Content>

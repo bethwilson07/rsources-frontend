@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 import Login from './components/Login'
+import NotFound from './containers/NotFound'
 import TopNavBar from './components/TopNavBar'
 import HomePage from './containers/HomePage'
 import SubjectPage from './containers/SubjectPage'
 import ResourceShowPage from './containers/ResourceShowPage'
 import FilteredCoursePage from './containers/FilteredCoursePage'
-import { Route, withRouter, Redirect} from 'react-router-dom'
+import { Switch, Route, withRouter, Redirect} from 'react-router-dom'
 import CourseShowPage from './containers/CourseShowPage'
 
 class App extends Component {
@@ -52,45 +53,45 @@ class App extends Component {
       <div className="App">
 
         <TopNavBar logged_in={this.state.currentUser} setCurrentUser={this.setCurrentUser}/>
+          <Switch>
+            <Route exact path="/login" render={() => this.state.loading ? null : (this.state.currentUser ?
+                <Redirect to="/home" /> :
+                <Login setCurrentUser={this.setCurrentUser}/> )}
+            />
 
-        <Route exact path="/login" render={() => this.state.loading ? null : (this.state.currentUser ?
-            <Redirect to="/home" /> :
-            <Login setCurrentUser={this.setCurrentUser}/> )}
-        />
+            <Route exact path='/home' render ={() => {
+              return ( <HomePage currentUser={this.state.currentUser}/>)
+              }} />
 
+            <Route exact path={`/subject/:id`} render ={(props) => {
+              return ( <SubjectPage
+                history={props.history}
+                match={props.match}
+                currentUser={this.state.currentUser}/>)
+              }} />
 
-        <Route exact path='/home' render ={() => {
-          return ( <HomePage currentUser={this.state.currentUser}/>)
-          }} />
+            <Route exact path={`/course/:id`} render ={(props) => {
+              return ( <CourseShowPage
+                history={props.history}
+                match={props.match}
+                currentUser={this.state.currentUser}/>)
+              }} />
 
-        <Route exact path={`/subject/:id`} render ={(props) => {
-          return ( <SubjectPage
-            history={props.history}
-            match={props.match}
-            currentUser={this.state.currentUser}/>)
-          }} />
+            <Route exact path={`/course/:id/resources/:name`} render ={(props) => {
+              return ( <FilteredCoursePage
+                history={props.history}
+                match={props.match}
+                currentUser={this.state.currentUser}/>)
+              }} />
 
-        <Route exact path={`/course/:id`} render ={(props) => {
-          return ( <CourseShowPage
-            history={props.history}
-            match={props.match}
-            currentUser={this.state.currentUser}/>)
-          }} />
-
-        <Route exact path={`/course/:id/resources/:name`} render ={(props) => {
-          return ( <FilteredCoursePage
-            history={props.history}
-            match={props.match}
-            currentUser={this.state.currentUser}/>)
-          }} />
-
-        <Route exact path={`/resource/show/:id`} render ={(props) => {
-          return ( <ResourceShowPage
-            history={props.history}
-            match={props.match}
-            currentUser={this.state.currentUser}/>)
-          }} />
-
+            <Route exact path={`/resource/show/:id`} render ={(props) => {
+              return ( <ResourceShowPage
+                history={props.history}
+                match={props.match}
+                currentUser={this.state.currentUser}/>)
+              }} />
+            <Route component={NotFound} />
+        </Switch>
 
       </div>
     );

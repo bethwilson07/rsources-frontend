@@ -52,7 +52,7 @@ class NewResourceForm extends React.Component {
 
     return (
       <div>
-        <Modal trigger={<Button onClick={this.handleClick}>{ this.getResourceType() ? `Add ${this.getResourceType()}` : "Add"}</Button>}
+        <Modal trigger={<Button color="blue" onClick={this.handleClick}>{ this.getResourceType() ? `Add ${this.getResourceType()}` : "Add"}</Button>}
           open={this.state.showModal}
           onClose={this.handleClick}
           centered={false}
@@ -77,7 +77,7 @@ class NewResourceForm extends React.Component {
                 <p>Thank you for sharing!</p>
               </Modal.Description>
               <Modal.Actions>
-                <Form.Button onClick={(event)=>this.handleSubmit(event)} type="submit">Submit</Form.Button>
+                <Form.Button color="blue" onClick={(event)=>this.handleSubmit(event)} type="submit">Submit</Form.Button>
               </Modal.Actions>
             </Form>
           </Modal.Content>

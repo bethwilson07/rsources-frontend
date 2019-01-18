@@ -90,6 +90,8 @@ class FilteredCoursePage extends React.Component {
           userId={this.props.currentUser.id}
           courseId={parseInt(this.props.match.params.id)}
           />
+          <div className="footer">
+          </div>
       </div> )
       : <Redirect to="/login" />)
   }

@@ -34,7 +34,6 @@ const TopNavBar =({location: { pathname }, logged_in, setCurrentUser}) => {
             as={NavLink}
             to="/subject/2"
             name="Tech"
-            color="green"
             active={pathname === "/subject/2"}
             />
           <Menu.Item
@@ -66,7 +65,9 @@ const TopNavBar =({location: { pathname }, logged_in, setCurrentUser}) => {
             active={pathname === "/login"}
           />
           <Menu.Menu position="right">
-            <Menu.Item name="Access Teaching Resources from STEM Instructors Across the Nation" />
+            <Menu.Item>
+              Access Teaching Resources from STEM Instructors Across the Nation
+            </Menu.Item>
           </Menu.Menu>
       </Fragment>
       )}

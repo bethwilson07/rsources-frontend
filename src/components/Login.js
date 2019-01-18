@@ -72,6 +72,11 @@ class Login extends React.Component {
         </Segment>
         <div className="spacing bottom">
         </div>
+        <div className="footer">
+          <Segment inverted color="black">
+          copyright 2019 Rsources
+          </Segment>
+        </div>
       </div>
     )
   }

@@ -47,7 +47,8 @@ class UpdateResource extends React.Component {
     console.log(this.props.resource[0].id)
     return (
       <div>
-        <Modal trigger={<Button onClick={this.handleClick}>Update Resource</Button>}
+        <br></br>
+        <Modal trigger={<Button color="blue" onClick={this.handleClick}>Update Resource</Button>}
           open={this.state.showModal}
           onClose={this.handleClick}
           centered={false}
@@ -72,10 +73,10 @@ class UpdateResource extends React.Component {
                 <p>Thank you for sharing!</p>
               </Modal.Description>
               <Modal.Actions>
-                <Form.Button onClick={(event)=>this.handleSubmit(event)} type="submit">Submit</Form.Button>
+                <Form.Button color="blue" onClick={(event)=>this.handleSubmit(event)} type="submit">Submit</Form.Button>
               </Modal.Actions>
             </Form>
-            <Button onClick={() => this.removeResource(this.props.resource[0].id)}>Delete Resource</Button>
+            <Button color="black" onClick={() => this.removeResource(this.props.resource[0].id)}>Delete Resource</Button>
           </Modal.Content>
         </Modal>
         </div>

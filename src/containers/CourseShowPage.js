@@ -3,7 +3,7 @@ import ResourceContainer from './ResourceContainer';
 import PostContainer from './PostContainer';
 import {fetchingCourses} from '../redux/actions'
 import {connect} from 'react-redux'
-import {Breadcrumb, Container, Header} from 'semantic-ui-react'
+import {Breadcrumb, Container, Segment, Header} from 'semantic-ui-react'
 import {Redirect, NavLink} from 'react-router-dom'
 
 class CourseShowPage extends React.Component {
@@ -47,6 +47,11 @@ class CourseShowPage extends React.Component {
           <Header as="h3">{`${this.getCurrentCourse().name} Forum`}</Header>
         <PostContainer match={this.props.match} currentUser={this.props.currentUser}/>
         </Container>
+        <div className="footer">
+          <Segment inverted color="black">
+          copyright 2019 Rsources
+          </Segment>
+        </div>
       </div>)
      : <Redirect to="/login" />)
   }

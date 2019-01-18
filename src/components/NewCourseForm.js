@@ -37,7 +37,8 @@ class NewCourseForm extends React.Component {
   render() {
       return (
         <div>
-          <Modal trigger={<Button onClick={this.handleClick}>Add New Course</Button>}
+          <br></br>
+          <Modal trigger={<Button color="blue" compact onClick={this.handleClick}>Add New Course</Button>}
             open={this.state.showModal}
             onClose={this.handleClick}
             centered={false}

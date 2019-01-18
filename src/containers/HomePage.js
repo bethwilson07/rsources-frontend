@@ -1,6 +1,6 @@
 import React from 'react';
 import {Redirect} from 'react-router-dom'
-import {Image, Card, Container} from 'semantic-ui-react'
+import {Image, Card, Segment, Container} from 'semantic-ui-react'
 import {connect} from 'react-redux'
 import {fetchingNasa} from '../redux/actions'
 
@@ -33,6 +33,11 @@ class HomePage extends React.Component {
             {this.props.nasa.explanation}
           </Container>
           <br></br>
+            <div className="footer">
+              <Segment inverted color="black">
+              copyright 2019 Rsources
+              </Segment>
+            </div>
         </div>
       ) : <Redirect to="/login" /> )
   }
