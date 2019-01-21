@@ -40,7 +40,8 @@ class SubjectPage extends React.Component {
   render() {
     console.log(this.props)
     return (this.props.currentUser ? (
-      <div>
+      <div className="subject page">
+        <br></br>
         <Breadcrumb>
           <Breadcrumb.Section as={NavLink} to="/home">Home</Breadcrumb.Section>
           <Breadcrumb.Divider icon='right angle' />

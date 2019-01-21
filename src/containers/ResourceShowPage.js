@@ -26,7 +26,8 @@ class ResourceShowPage extends React.Component {
 
   render() {
     return (this.props.currentUser ? (
-      <div>
+      <div className="resource page">
+        <br></br>
         <Breadcrumb>
           <Breadcrumb.Section onClick={this.handleClick}>Back</Breadcrumb.Section>
         </Breadcrumb>
@@ -40,6 +41,8 @@ class ResourceShowPage extends React.Component {
           description={this.findCurrentResource() ? this.findCurrentResource()[0].description : null}
         ></Card>
       {this.findCurrentResource()[0].user.id === this.props.currentUser.id ? <UpdateResource history={this.props.history} currentUser={this.props.currentUser} resource={this.findCurrentResource()}/> : null}
+      <div className="spacing bottom">
+      </div>
       <div className="footer">
         <Segment inverted color="black">
         copyright 2019 Rsources

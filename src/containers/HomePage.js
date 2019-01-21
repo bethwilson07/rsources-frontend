@@ -13,7 +13,7 @@ class HomePage extends React.Component {
   render ()  {
     console.log(this.props.nasa)
     return (this.props.currentUser ? (
-        <div>
+        <div className="home page">
           <br></br>
           <h1>{`Welcome ${this.props.currentUser.username}!`}</h1>
             <div className="quote">

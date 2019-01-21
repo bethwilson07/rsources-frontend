@@ -40,11 +40,9 @@ class SignUp extends React.Component {
         localStorage.setItem('token', data.token)
       }
     })
-    this.props.history.push('/home')
   };
 
   render() {
-    console.log(this.props.history)
     return (
       <div>
         <h2>Join the Movement!</h2>
