@@ -2,13 +2,7 @@
   text-align: center;
 }
 
-.login {
-  background: url("https://pi.tedcdn.com/r/tedideas.files.wordpress.com/2017/06/featured_art_solarsystemswater.jpg?");
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.not {
+.login, .not {
   background: url("https://pi.tedcdn.com/r/tedideas.files.wordpress.com/2017/06/featured_art_solarsystemswater.jpg?");
   background-size: cover;
   background-repeat: no-repeat;
@@ -22,6 +16,15 @@
 
 .footer {
   padding: 100px 0 0px 0;
+}
+
+.tree.footer {
+  margin: auto;
+  opacity: 0.6;
+}
+
+.quote {
+  font-weight: bold;
 }
 
 .ui.segment.login {

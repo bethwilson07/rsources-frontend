@@ -2,6 +2,7 @@ import React from 'react';
 import {Button, Modal, Form} from 'semantic-ui-react';
 import {connect} from 'react-redux';
 import {postingResource} from '../redux/actions'
+import ActiveStorageProvider from "react-activestorage-provider"
 
 class NewResourceForm extends React.Component {
 
@@ -49,7 +50,6 @@ class NewResourceForm extends React.Component {
   }
 
   render() {
-
     return (
       <div>
         <Modal trigger={<Button color="blue" onClick={this.handleClick}>{ this.getResourceType() ? `Add ${this.getResourceType()}` : "Add"}</Button>}
@@ -72,6 +72,46 @@ class NewResourceForm extends React.Component {
                 onChange={this.OnFormChanges}
                 label='Photo URL' name="photo" value={this.state.photo}
                 control="input" placeholder="Photo Url" />
+              <ActiveStorageProvider
+                endpoint={{
+                  path: "http://localhost:3000/resources",
+                  model: 'Resource',
+                  attribute: 'documents',
+                  method: 'POST',
+                }}
+                multiple
+                onSubmit={resource => this.setState({ documents: resource.documents })}
+                render={({ handleUpload, uploads, ready }) => (
+                  <div>
+                    <input
+                      type="file"
+                      disabled={!ready}
+                      onChange={e => handleUpload(e.currentTarget.files)}
+                    />
+
+                    {uploads.map(upload => {
+                      switch (upload.state) {
+                        case 'waiting':
+                          return <p key={upload.id}>Waiting to upload {upload.file.name}</p>
+                        case 'uploading':
+                          return (
+                            <p key={upload.id}>
+                              Uploading {upload.file.name}: {upload.progress}%
+                            </p>
+                          )
+                        case 'error':
+                          return (
+                            <p key={upload.id}>
+                              Error uploading {upload.file.name}: {upload.error}
+                            </p>
+                          )
+                        case 'finished':
+                          return <p key={upload.id}>Finished uploading {upload.file.name}</p>
+                      }
+                    })}
+                  </div>
+                )}
+                />
               <Modal.Description>
                 <p>By submitting this resource, you agree to allow other educators to use your materials.</p>
                 <p>Thank you for sharing!</p>
