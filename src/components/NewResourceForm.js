@@ -38,7 +38,9 @@ class NewResourceForm extends React.Component {
     formData.append('resource[resource_type]', this.props.type)
     formData.append('resource[course_id]', this.props.courseId)
     formData.append('resource[user_id]', this.props.userId)
-    formData.append('resource[documents]', this.state.documents)
+    for (let i = 0; i < this.state.documents.length; i++) {
+      formData.append('resource[documents]', this.state.documents[i]);
+    }
 
     this.props.dispatch(postingResource(formData));
     this.setState({
