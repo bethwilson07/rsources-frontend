@@ -20,7 +20,7 @@ class ResourceShowPage extends React.Component {
   }
 
   getDocumentInfo = () => {
-    if (this.findCurrentResource()){
+    if (this.findCurrentResource()[0].documents[0]){
       let doc = this.findCurrentResource()[0].documents[0].split('/')
       return doc[doc.length-1]
     }
@@ -46,7 +46,6 @@ class ResourceShowPage extends React.Component {
           header={this.findCurrentResource() ? this.findCurrentResource()[0].name : null}
           meta={this.findCurrentResource() ? `${this.findCurrentResource()[0].resource_type.split('_').join(" ")} submitted by ${this.findCurrentResource()[0].user.username}` : null}
           description={this.findCurrentResource() ? this.findCurrentResource()[0].description : null}
-          extra={`Files: ${this.getDocumentInfo()}`}
         ></Card>
       {this.findCurrentResource()[0].user.id === this.props.currentUser.id ? <UpdateResource history={this.props.history} currentUser={this.props.currentUser} resource={this.findCurrentResource()}/> : null}
       <div className="resources spacing bottom">

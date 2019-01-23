@@ -146,10 +146,21 @@
   padding-left: 300px;
 }
 
+.ui.grid.resource {
+  margin: auto;
+}
+
 .ui.card.links{
   margin: auto;
+  padding-top: 1rem;
+  max-width: 180px;
+  max-height: 250px;
   margin-top: 10px;
   margin-bottom: 30px;
+}
+
+.ui.small.image.small {
+  margin: auto;
 }
 
 .ui.segments {
