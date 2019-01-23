@@ -80,7 +80,7 @@ class FilteredCoursePage extends React.Component {
         <br></br>
         <h1>{this.makePageTitle(this.props.match.params.name)}</h1>
         <br></br>
-        <Grid className="container">
+        <Grid>
           {this.getTypeOfResource().map(r => <Resource key={r.id} resource={r}/>)}
         </Grid>
         <h4>Want to add a {this.props.match.params.name.split("_").join(" ")}?</h4>

@@ -31,18 +31,16 @@ class NewResourceForm extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const formData = new FormData();
-    formData.append('resource[name]', this.state.name)
-    formData.append('resource[description]', this.state.description,)
-    formData.append('resource[photo]', this.state.photo)
-    formData.append('resource[resource_type]', this.props.type)
-    formData.append('resource[course_id]', this.props.courseId)
-    formData.append('resource[user_id]', this.props.userId)
-    for (let i = 0; i < this.state.documents.length; i++) {
-      formData.append('resource[documents]', this.state.documents[i]);
+    let data ={
+      name: this.state.name,
+      description: this.state.description,
+      photo: this.state.photo,
+      resource_type: this.props.type,
+      course_id: this.props.courseId,
+      user_id: this.props.userId
     }
 
-    this.props.dispatch(postingResource(formData));
+    this.props.dispatch(postingResource(data));
     this.setState({
       name: '',
     });
@@ -81,11 +79,6 @@ class NewResourceForm extends React.Component {
                 onChange={this.OnFormChanges}
                 label='Photo URL' name="photo" value={this.state.photo}
                 control="input" placeholder="Photo Url" />
-              <Form.Field
-                onChange={this.onFileChange}
-                control="input" type="file" name="file" files={this.state.documents}
-                multiple
-                />
               <Modal.Description>
                 <p>By submitting this resource, you agree to allow other educators to use your materials.</p>
                 <p>Thank you for sharing!</p>
