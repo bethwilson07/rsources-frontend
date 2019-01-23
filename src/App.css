@@ -9,7 +9,7 @@
 }
 
 .subject.page, .home.page, .course.page, .filtered.page, .resource.page {
-  background: url("https://i.pinimg.com/originals/ec/7f/6c/ec7f6cd09bf7e6698bcb18d6a373542d.jpg");
+  background: url("https://i0.wp.com/www.knoxalliance.store/wp-content/uploads/2017/05/light-color-background-images-for-website-top-hd-images-for-free-background-for-website-in-light-color-1-1024x640.jpg?ssl=1");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -50,7 +50,7 @@
   padding: 100px;
 }
 
-.ui.inverted.segment {
+.ui.inverted.menu {
   margin: 0 !important;
 }
 
@@ -61,12 +61,6 @@
 .ui.segment.placeholder {
   max-width: 500px;
   margin: auto;
-}
-
-.ui.vertical.menu {
-  max-width: 300px;
-  height: 700px;
-  float: left;
 }
 
 .ui.card.home-image {

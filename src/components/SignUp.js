@@ -33,8 +33,8 @@ class SignUp extends React.Component {
     }).then(r => r.json())
     .then(data => {
       if(data.error){
-        alert('Incorrect username or password')
-      }else{
+        alert(`Either the username is already taken or your password does not meet the requirements. Please try again.`)
+      } else{
         console.log(data)
         this.props.setCurrentUser(data.user_info)
         localStorage.setItem('token', data.token)
@@ -60,7 +60,7 @@ class SignUp extends React.Component {
               onChange={this.handleChange}
               value={this.state.username} />
               <Form.Input icon='lock' iconPosition='left' type="password"
-              label="Password"
+              label="Password (must be between 6 and 20 characters)"
               placeholder="password"
               name="password"
               onChange={this.handleChange}

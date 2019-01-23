@@ -15,8 +15,6 @@ class HomePage extends React.Component {
     return (this.props.currentUser ? (
         <div className="home page">
           <br></br>
-          <h3>Looking for STEM ideas & resources? Choose your subject from the above menu.</h3>
-          <br></br>
           <h1>{`Welcome to Rsources, ${this.props.currentUser.username}!`}</h1>
           <br></br>
           <h5>NASA Photo of the Day</h5>
@@ -32,13 +30,13 @@ class HomePage extends React.Component {
             </Card.Content>
           </Card>
           <br></br>
+          <br></br>
           <div className="quote">
             <h3><i>"Discovery is seeing what everybody else has seen, and thinking what nobody else has thought."</i>
             <br></br>
             <i>~Albert Szent Gyorgyi</i></h3>
           </div>
           <Image className="tree footer" size="small" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQr5MlQSabEAmq62sTDJhrd4UoFI43GXlvHF5xc4qm1EjKEYiVw"/>
-          <br></br>
             <div className="footer">
               <Segment inverted color="black">
               copyright 2019

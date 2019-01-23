@@ -10,8 +10,7 @@ const TopNavBar =({location: { pathname }, logged_in, setCurrentUser}) => {
   }
 
   return (
-    <Segment inverted>
-    <Menu inverted pointing secondary >
+    <Menu inverted color='darkblue'>
       {logged_in ? (
         <Fragment>
           <Menu.Item>
@@ -72,7 +71,6 @@ const TopNavBar =({location: { pathname }, logged_in, setCurrentUser}) => {
       </Fragment>
       )}
     </Menu>
-    </Segment>
   );
 };
 

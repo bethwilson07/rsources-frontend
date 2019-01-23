@@ -77,7 +77,7 @@ class SubjectPage extends React.Component {
             </Segment>
           </div>
       </div>)
-     : <Redirect to="/login" />)
+     : null )
   }
 }
 
