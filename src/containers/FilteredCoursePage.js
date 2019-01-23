@@ -1,7 +1,7 @@
 import React from 'react';
 import Resource from '../components/Resource'
 import NewResourceForm from '../components/NewResourceForm'
-import {Breadcrumb, Image, Segment} from 'semantic-ui-react'
+import {Breadcrumb, Image, Grid, Segment} from 'semantic-ui-react'
 import {connect} from 'react-redux'
 import {fetchingResources, fetchingCourses} from '../redux/actions'
 import {Redirect, NavLink, withRouter} from 'react-router-dom'
@@ -63,7 +63,6 @@ class FilteredCoursePage extends React.Component {
   }
 
   render () {
-    console.log(this.props)
     return (this.props.currentUser ? (
       <div className="filtered page">
         <br></br>
@@ -81,7 +80,9 @@ class FilteredCoursePage extends React.Component {
         <br></br>
         <h1>{this.makePageTitle(this.props.match.params.name)}</h1>
         <br></br>
-        {this.getTypeOfResource().map(r => <Resource key={r.id} resource={r}/>)}
+        <Grid className="container">
+          {this.getTypeOfResource().map(r => <Resource key={r.id} resource={r}/>)}
+        </Grid>
         <h4>Want to add a {this.props.match.params.name.split("_").join(" ")}?</h4>
         <NewResourceForm
           resource={this.getTypeOfResource()}
