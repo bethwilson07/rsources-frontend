@@ -1,5 +1,5 @@
 import React from 'react'
-import {Header, Segment} from 'semantic-ui-react'
+import {Header, Image, Segment} from 'semantic-ui-react'
 
 const NotFound =() => {
   return (
@@ -16,7 +16,10 @@ const NotFound =() => {
       </div>
       <div className="footer">
         <Segment inverted color="black">
-        copyright 2019 Rsources
+        copyright 2019
+        <br></br>
+        <Image inline size="mini" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQr5MlQSabEAmq62sTDJhrd4UoFI43GXlvHF5xc4qm1EjKEYiVw"/>
+        Rsources
         </Segment>
       </div>
     </div>

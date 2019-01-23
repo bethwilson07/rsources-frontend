@@ -19,7 +19,7 @@ class PostBox extends React.Component {
   render () {
   return (
     <Fragment>
-      <Segment.Group>
+      <Segment.Group className="post box">
         <Feed>
           <Feed.Event className="post">
             <Feed.Label>
@@ -36,7 +36,7 @@ class PostBox extends React.Component {
             </Feed.Content>
           </Feed.Event>
             <Icon name="comments outline"/>Comments
-            <Segment>{this.getComments().map(c => <CommentBox key={c.id} comment={c} currentUser={this.props.currentUser} />)}</Segment>
+            <Segment className="comment box">{this.getComments().map(c => <CommentBox key={c.id} comment={c} currentUser={this.props.currentUser} />)}</Segment>
             <NewCommentForm currentUser={this.props.currentUser} post={this.props.post}/>
         </Feed>
       </Segment.Group>

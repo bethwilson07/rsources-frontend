@@ -1,7 +1,7 @@
 import React from 'react';
 import SignUp from './SignUp'
 import {withRouter} from 'react-router-dom'
-import {Button, Divider, Form, Grid, Segment} from 'semantic-ui-react'
+import {Button, Image, Divider, Form, Grid, Segment} from 'semantic-ui-react'
 
 class Login extends React.Component {
 
@@ -74,7 +74,10 @@ class Login extends React.Component {
         </div>
         <div className="footer">
           <Segment inverted color="black">
-          copyright 2019 Rsources
+          copyright 2019
+          <br></br>
+          <Image inline size="mini" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQr5MlQSabEAmq62sTDJhrd4UoFI43GXlvHF5xc4qm1EjKEYiVw"/>
+          Rsources
           </Segment>
         </div>
       </div>

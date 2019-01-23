@@ -55,12 +55,13 @@ class SubjectPage extends React.Component {
               <Image src={this.getCurrentSubjectPhoto()} className="sub"/>
             </Card>
           </Grid.Row>
+          <h2 className="choose">Choose a course to see all of our available resources.</h2>
           <Grid.Row columns={3}>
             {this.filterCourses().map(c => <Link to={`/course/${c.id}`} key={c.id}>
               <CourseCard key={c.id} course={c}/></Link>)}
           </Grid.Row>
         </Grid>
-        Don't see your particular {this.getCurrentSubjectName()} course?
+        <h3>Don't see your particular {this.getCurrentSubjectName()} course?</h3>
         <NewCourseForm
           subjectName={this.getCurrentSubjectName()}
           subjectId={this.getCurrentSubjectId()}
@@ -69,7 +70,10 @@ class SubjectPage extends React.Component {
           />
           <div className="footer">
             <Segment inverted color="black">
-            copyright 2019 Rsources
+            copyright 2019
+            <br></br>
+            <Image inline size="mini" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQr5MlQSabEAmq62sTDJhrd4UoFI43GXlvHF5xc4qm1EjKEYiVw"/>
+            Rsources
             </Segment>
           </div>
       </div>)

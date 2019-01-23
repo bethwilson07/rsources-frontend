@@ -3,7 +3,7 @@ import ResourceContainer from './ResourceContainer';
 import PostContainer from './PostContainer';
 import {fetchingCourses} from '../redux/actions'
 import {connect} from 'react-redux'
-import {Breadcrumb, Container, Segment, Header} from 'semantic-ui-react'
+import {Breadcrumb, Container, Image, Segment, Header} from 'semantic-ui-react'
 import {Redirect, NavLink} from 'react-router-dom'
 
 class CourseShowPage extends React.Component {
@@ -50,7 +50,10 @@ class CourseShowPage extends React.Component {
         </Container>
         <div className="footer">
           <Segment inverted color="black">
-          copyright 2019 Rsources
+          copyright 2019
+          <br></br>
+          <Image inline size="mini" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQr5MlQSabEAmq62sTDJhrd4UoFI43GXlvHF5xc4qm1EjKEYiVw"/>
+          Rsources
           </Segment>
         </div>
       </div>)

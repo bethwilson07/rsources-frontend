@@ -9,7 +9,7 @@
 }
 
 .subject.page, .home.page, .course.page, .filtered.page, .resource.page {
-  background: url("https://www.legendary.com/wp-content/uploads/2017/03/LIS-Featured.jpg");
+  background: url("https://i.pinimg.com/originals/ec/7f/6c/ec7f6cd09bf7e6698bcb18d6a373542d.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -27,6 +27,10 @@
   font-weight: bold;
 }
 
+.choose {
+  margin: auto;
+}
+
 .ui.segment.login {
   opacity: 0.8;
   margin: auto;
@@ -40,6 +44,10 @@
 
 .spacing.bottom {
   padding: 300px;
+}
+
+.resources.spacing.bottom {
+  padding: 100px;
 }
 
 .ui.inverted.segment {
@@ -154,4 +162,17 @@
 
 .ui.extra.text {
   min-width: 500px;
+}
+
+.ui.segments.post.box {
+  background-color: #e3f2fd !important;
+  max-width: 550px;
+  margin: auto;
+  padding: 2rem;
+}
+
+.ui.segment.comment.box {
+  background-color: #bbdefd !important;
+  max-width: 450px;
+  margin: auto;
 }

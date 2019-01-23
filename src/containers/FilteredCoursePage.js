@@ -1,7 +1,7 @@
 import React from 'react';
 import Resource from '../components/Resource'
 import NewResourceForm from '../components/NewResourceForm'
-import {Breadcrumb} from 'semantic-ui-react'
+import {Breadcrumb, Image, Segment} from 'semantic-ui-react'
 import {connect} from 'react-redux'
 import {fetchingResources, fetchingCourses} from '../redux/actions'
 import {Redirect, NavLink, withRouter} from 'react-router-dom'
@@ -91,7 +91,15 @@ class FilteredCoursePage extends React.Component {
           userId={this.props.currentUser.id}
           courseId={parseInt(this.props.match.params.id)}
           />
+        <div className="resources spacing bottom">
+          </div>
           <div className="footer">
+            <Segment inverted color="black">
+            copyright 2019
+            <br></br>
+            <Image inline size="mini" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQr5MlQSabEAmq62sTDJhrd4UoFI43GXlvHF5xc4qm1EjKEYiVw"/>
+            Rsources
+            </Segment>
           </div>
       </div> )
       : <Redirect to="/login" />)

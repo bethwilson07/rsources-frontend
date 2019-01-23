@@ -2,7 +2,7 @@ import React from 'react';
 import UpdateResource from '../components/UpdateResource'
 import {connect} from 'react-redux'
 import {fetchingResources} from '../redux/actions'
-import {Card, Segment, Breadcrumb} from 'semantic-ui-react'
+import {Card, Segment, Image, Breadcrumb} from 'semantic-ui-react'
 import {Redirect, withRouter} from 'react-router-dom'
 
 class ResourceShowPage extends React.Component {
@@ -41,11 +41,14 @@ class ResourceShowPage extends React.Component {
           description={this.findCurrentResource() ? this.findCurrentResource()[0].description : null}
         ></Card>
       {this.findCurrentResource()[0].user.id === this.props.currentUser.id ? <UpdateResource history={this.props.history} currentUser={this.props.currentUser} resource={this.findCurrentResource()}/> : null}
-      <div className="spacing bottom">
+      <div className="resources spacing bottom">
       </div>
       <div className="footer">
         <Segment inverted color="black">
-        copyright 2019 Rsources
+        copyright 2019
+        <br></br>
+        <Image inline size="mini" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQr5MlQSabEAmq62sTDJhrd4UoFI43GXlvHF5xc4qm1EjKEYiVw"/>
+        Rsources
         </Segment>
       </div>
       </div>)
