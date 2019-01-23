@@ -17,7 +17,7 @@ class ResourceContainer extends React.Component {
   render() {
     return (
       <div>
-        <Grid>
+        <Grid className="container">
           <Grid.Row className="sources" columns={3}>
             {this.resourceTypes().map(t => <Link to={`/course/${this.props.courseId}/resources/${t.name}`} key={t.id} >
             <ResourceCard key={t.id} title={t.title} photo={t.photo}/></Link>).slice(0,3)}

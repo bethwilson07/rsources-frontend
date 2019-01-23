@@ -133,17 +133,17 @@
   padding: 50px;
 }
 
+.ui.grid.container {
+  margin: auto;
+}
+
 .three.column.row {
   margin: auto;
   padding-left: 50px;
 }
 
-.three.column.row.sources {
-  padding-left: 150px;
-}
-
 .two.column.row.sources {
-  padding-left: 300px;
+  padding-left: 200px;
 }
 
 .ui.grid.resource {
