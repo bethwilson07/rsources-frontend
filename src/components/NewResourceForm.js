@@ -2,7 +2,6 @@ import React from 'react';
 import {Button, Modal, Form} from 'semantic-ui-react';
 import {connect} from 'react-redux';
 import {postingResource} from '../redux/actions'
-import ActiveStorageProvider from "react-activestorage-provider"
 
 class NewResourceForm extends React.Component {
 
@@ -10,7 +9,8 @@ class NewResourceForm extends React.Component {
     showModal: false,
     name: '',
     description: '',
-    photo: ''
+    photo: '',
+    documents: []
   }
 
   handleClick = () => this.setState({ showModal: !this.state.showModal })
@@ -23,17 +23,24 @@ class NewResourceForm extends React.Component {
       })
   }
 
+  onFileChange = (e) => {
+    this.setState({
+      documents: e.target.files[0]
+    })
+  }
+
   handleSubmit = (event) => {
     event.preventDefault();
-    let data = {
-      name: this.state.name,
-      description: this.state.description,
-      photo: this.state.photo,
-      resource_type: this.props.type,
-      course_id: this.props.courseId,
-      user_id: this.props.userId
-    }
-    this.props.dispatch(postingResource(data));
+    const formData = new FormData();
+    formData.append('resource[name]', this.state.name)
+    formData.append('resource[description]', this.state.description,)
+    formData.append('resource[photo]', this.state.photo)
+    formData.append('resource[resource_type]', this.props.type)
+    formData.append('resource[course_id]', this.props.courseId)
+    formData.append('resource[user_id]', this.props.userId)
+    formData.append('resource[documents]', this.state.documents)
+
+    this.props.dispatch(postingResource(formData));
     this.setState({
       name: '',
     });
@@ -72,45 +79,10 @@ class NewResourceForm extends React.Component {
                 onChange={this.OnFormChanges}
                 label='Photo URL' name="photo" value={this.state.photo}
                 control="input" placeholder="Photo Url" />
-              <ActiveStorageProvider
-                endpoint={{
-                  path: "http://localhost:3000/resources",
-                  model: 'Resource',
-                  attribute: 'documents',
-                  method: 'POST',
-                }}
+              <Form.Field
+                onChange={this.onFileChange}
+                control="input" type="file" name="file" files={this.state.documents}
                 multiple
-                onSubmit={resource => this.setState({ documents: resource.documents })}
-                render={({ handleUpload, uploads, ready }) => (
-                  <div>
-                    <input
-                      type="file"
-                      disabled={!ready}
-                      onChange={e => handleUpload(e.currentTarget.files)}
-                    />
-
-                    {uploads.map(upload => {
-                      switch (upload.state) {
-                        case 'waiting':
-                          return <p key={upload.id}>Waiting to upload {upload.file.name}</p>
-                        case 'uploading':
-                          return (
-                            <p key={upload.id}>
-                              Uploading {upload.file.name}: {upload.progress}%
-                            </p>
-                          )
-                        case 'error':
-                          return (
-                            <p key={upload.id}>
-                              Error uploading {upload.file.name}: {upload.error}
-                            </p>
-                          )
-                        case 'finished':
-                          return <p key={upload.id}>Finished uploading {upload.file.name}</p>
-                      }
-                    })}
-                  </div>
-                )}
                 />
               <Modal.Description>
                 <p>By submitting this resource, you agree to allow other educators to use your materials.</p>

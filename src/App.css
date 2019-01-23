@@ -76,7 +76,7 @@
   min-width: 600px;
   min-height: 350px;
 }
-.ui.card>.image {
+.ui.card.image {
   max-height: 400px;
 }
 .ui.card.resource-image {
