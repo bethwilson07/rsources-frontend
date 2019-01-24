@@ -24,8 +24,8 @@ class HomePage extends React.Component {
             <Card.Content>
               <Container>
                 <h4>Explanation:</h4>
-                <br></br>
-                {this.props.nasa.explanation}
+              <br></br>
+              {this.props.nasa.explanation}
               </Container>
             </Card.Content>
           </Card>
@@ -36,12 +36,13 @@ class HomePage extends React.Component {
             <br></br>
             <i>~Albert Szent Gyorgyi</i></h3>
           </div>
-          <Image className="tree footer" size="small" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQr5MlQSabEAmq62sTDJhrd4UoFI43GXlvHF5xc4qm1EjKEYiVw"/>
+          <br></br>
+          <Image className="little" size="small" src="https://i.stack.imgur.com/WMRSU.gif"/>
             <div className="footer">
               <Segment className="footer">
               copyright 2019
               <br></br>
-              <Image inline size="mini" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQr5MlQSabEAmq62sTDJhrd4UoFI43GXlvHF5xc4qm1EjKEYiVw"/>
+              <Image inline size="mini" src="https://i.stack.imgur.com/WMRSU.gif"/>
               Rsources
               </Segment>
             </div>

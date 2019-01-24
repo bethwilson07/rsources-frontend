@@ -14,7 +14,7 @@ const TopNavBar =({location: { pathname }, logged_in, setCurrentUser}) => {
       {logged_in ? (
         <Fragment>
           <Menu.Item>
-            <Image size="mini" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQr5MlQSabEAmq62sTDJhrd4UoFI43GXlvHF5xc4qm1EjKEYiVw"/>
+            <Image size="mini" src="https://i.stack.imgur.com/WMRSU.gif"/>
             RSources
         </Menu.Item>
           <Menu.Item

@@ -2,7 +2,29 @@
   text-align: center;
 }
 
+/* unvisited link */
+a:link {
+  color: #153D61;
+}
+
+/* visited link */
+a:visited {
+  color: #153D61;
+}
+
+/* mouse over link */
+a:hover {
+  color: #fff;
+}
+
+/* selected link */
+a:active {
+  color: #415B96;
+}
+/**/
+/*https://ak3.picdn.net/shutterstock/videos/850933/thumb/1.jpg*/
 .login {
+
   background: url("https://www.quantum-bits.org/wp-content/uploads/2012/09/particule-physics.png");
   background-size: cover;
   background-repeat: no-repeat;
@@ -15,17 +37,19 @@
 }
 
 .subject.page, .home.page, .course.page, .filtered.page, .resource.page {
-  background: url("https://i0.wp.com/www.knoxalliance.store/wp-content/uploads/2017/05/light-color-background-images-for-website-top-hd-images-for-free-background-for-website-in-light-color-1-1024x640.jpg?ssl=1");
+  background: url("http://www.jostens.fr/wp-content/uploads/2012/02/siteBackground.jpg");
+  /* background-color: #bdcadb; */
   background-size: cover;
   background-repeat: no-repeat;
+  color: #153D61;
 }
 
 .ui.huge.header {
-  color: #1d0909;
+  color: #DBE7E7;
 }
 
 .nfound {
-  padding: 200px;
+  padding: 250px;
 }
 
 .footer {
@@ -33,12 +57,15 @@
 }
 
 .ui.segment.footer{
- background-color: #364e61;
+  background-color: #153D61;
+  color: #DBE7E7  ;
 }
 
-.tree.footer {
+.little {
   margin: auto;
-  opacity: 0.6;
+  min-width: 100px;
+  max-height: 150px;
+  opacity: 0.7;
 }
 
 .quote {
@@ -51,9 +78,10 @@
 
 .ui.segment.login {
   opacity: 0.8;
-  margin: auto;
   max-width: 800px;
   max-height: 400px;
+  margin-left: 100px;
+  background-color: #d0cfd0;
 }
 
 .spacing.top{
@@ -61,15 +89,23 @@
 }
 
 .spacing.bottom {
-  padding: 300px;
+  padding: 200px;
+}
+
+.log.spacing.bottom {
+  padding: 200px;
 }
 
 .resources.spacing.bottom {
-  padding: 100px;
+  padding: 200px;
+}
+.content.restitle {
+  color: #153D61;
 }
 
 .ui.inverted.menu {
-  background-color: #364e61;
+  background-color: #153D61;
+  color: #DBE7E7;
   margin: 0 !important;
 }
 
@@ -83,7 +119,11 @@
 }
 
 .ui.blue.button {
-  background-color: #467498;
+  background-color: #153D61;
+}
+
+.ui.blue.button:hover {
+  background-color: #537786;
 }
 
 .ui.card.home-image {
@@ -92,6 +132,8 @@
   margin-bottom: 2rem;
   min-width: 600px;
   min-height: 350px;
+  padding: 1rem;
+  background-color: #e0e0e1;
 }
 .ui.card.image {
   max-height: 400px;
@@ -110,7 +152,11 @@
 
 .ui.image.sub {
   min-width: 290px;
-  min-height: 180px;
+  max-width: 290px;
+  max-height: 203px;
+  min-height: 200px;
+  padding: 1rem;
+  background-color: #e0e0e1;
 }
 
 .ui.card.course {
@@ -119,6 +165,8 @@
   margin-bottom: 10px;
   margin-left: 5px;
   margin-right: 5px;
+  background-color: #153D61;
+  color: #C7D6CF;
 }
 
 .ui.card.res {
@@ -130,10 +178,13 @@
   margin-bottom: 10px;
   margin-left: 5px;
   margin-right: 5px;
+  background-color: #e0e0e1;
+  padding: 1rem;
 }
 
 .ui.image.resource {
-  min-width: 200px;
+  min-height: 197px;
+  max-width: 262px;
   max-height: 200px;
 }
 
@@ -160,13 +211,23 @@
   justify-content: center !important;
 }
 
-.three.column.row {
+.three.column.row.res{
+  max-width: 600px;
   margin: auto;
-  padding-left: 50px;
+}
+
+.three.column.row.sub {
+  margin: auto;
+  padding-left: 150px;
+}
+
+.three.column.row.sources {
+  margin: auto;
+  padding-left: 75px;
 }
 
 .two.column.row.sources {
-  padding-left: 200px;
+  padding-left: 230px;
 }
 
 .ui.grid.resource {
@@ -179,7 +240,7 @@
   min-width: 100px !important;
   max-width: 180px;
   min-height: 150px !important;
-  max-height: 250px;
+  max-height: 200px;
   margin-top: 10px;
   margin-bottom: 30px;
   display: inline;
@@ -187,6 +248,8 @@
 
 .ui.small.image.small {
   margin: auto;
+  min-height: 110px;
+  max-height: 110px;
 }
 
 .ui.segments {
@@ -207,14 +270,15 @@
 }
 
 .ui.segments.post.box {
-  background-color: #c1cfdc !important;
+  background-color: #dde1e7 !important;
   max-width: 550px;
   margin: auto;
   padding: 2rem;
+  padding-left: 35px;
 }
 
 .ui.segment.comment.box {
-  background-color: #e3e7ea !important;
+  background-color: #c1cfdc !important;
   max-width: 450px;
   margin: auto;
 }

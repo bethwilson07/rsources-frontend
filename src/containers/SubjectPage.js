@@ -56,7 +56,7 @@ class SubjectPage extends React.Component {
             </Card>
           </Grid.Row>
           <h2 className="choose">Choose a course to see all of our available resources.</h2>
-          <Grid.Row columns={3}>
+          <Grid.Row className="sub"columns={3}>
             {this.filterCourses().map(c => <Link to={`/course/${c.id}`} key={c.id}>
               <CourseCard key={c.id} course={c}/></Link>)}
           </Grid.Row>
@@ -68,6 +68,8 @@ class SubjectPage extends React.Component {
           currentUser={this.props.currentUser}
           history={this.props.history}
           />
+          <div className="spacing bottom">
+            </div>
           <div className="footer">
             <Segment className="footer">
             copyright 2019
@@ -89,3 +91,5 @@ const mapStateToProps = state => {
 }
 
 export default withRouter(connect(mapStateToProps)(SubjectPage));
+
+//

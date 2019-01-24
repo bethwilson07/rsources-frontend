@@ -59,7 +59,7 @@ class Login extends React.Component {
                 onChange={this.handleChange}
                 value={this.state.password} />
 
-              <Button content='Login' type="submit" color="black" />
+              <Button content='Login' type="submit" color="blue" />
               </Form>
             </Grid.Column>
 
@@ -70,7 +70,7 @@ class Login extends React.Component {
           <Divider vertical>Or</Divider>
 
         </Segment>
-        <div className="spacing bottom">
+        <div className="log spacing bottom">
         </div>
         <div className="footer">
           <Segment className="footer">

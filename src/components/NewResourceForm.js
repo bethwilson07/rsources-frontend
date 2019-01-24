@@ -43,6 +43,8 @@ class NewResourceForm extends React.Component {
     this.props.dispatch(postingResource(data));
     this.setState({
       name: '',
+      description: '',
+      photo: ''
     });
     this.handleClick();
     this.props.history.push(`/course/${this.props.courseId}/resources/${this.props.type}`);

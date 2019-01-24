@@ -24,7 +24,7 @@ class PostContainer extends React.Component {
         <Grid columns={1} textAlign='center'>
           <Grid.Column>
               {this.getCoursePosts() ? this.getCoursePosts().map(p => <PostBox
-                  key={p.id} post={p} currentUser={this.props.currentUser}/>) : null}
+                  key={p.id} post={p} currentUser={this.props.currentUser}/>).reverse() : null}
           </Grid.Column>
         </Grid>
       </Fragment>
