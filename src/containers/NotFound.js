@@ -7,15 +7,19 @@ const NotFound =() => {
       <div className="spacing top">
       </div>
         <Header size="huge" color="black">
-          You're out of this world!
+          ...your head is in the clouds...
+        </Header>
+        <br></br>
+        <Header size="large" color="black">
+          404
         </Header>
         <Header size="huge" color="black">
           PAGE NOT FOUND
         </Header>
-      <div className="spacing bottom">
+      <div className="nfound">
       </div>
       <div className="footer">
-        <Segment inverted color="black">
+        <Segment className="footer">
         copyright 2019
         <br></br>
         <Image inline size="mini" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQr5MlQSabEAmq62sTDJhrd4UoFI43GXlvHF5xc4qm1EjKEYiVw"/>

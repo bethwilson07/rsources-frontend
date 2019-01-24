@@ -69,7 +69,7 @@ class SubjectPage extends React.Component {
           history={this.props.history}
           />
           <div className="footer">
-            <Segment inverted color="black">
+            <Segment className="footer">
             copyright 2019
             <br></br>
             <Image inline size="mini" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQr5MlQSabEAmq62sTDJhrd4UoFI43GXlvHF5xc4qm1EjKEYiVw"/>
@@ -77,7 +77,7 @@ class SubjectPage extends React.Component {
             </Segment>
           </div>
       </div>)
-     : null )
+     : <Redirect to="/login" />)
   }
 }
 

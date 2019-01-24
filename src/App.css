@@ -2,8 +2,14 @@
   text-align: center;
 }
 
-.login, .not {
-  background: url("https://pi.tedcdn.com/r/tedideas.files.wordpress.com/2017/06/featured_art_solarsystemswater.jpg?");
+.login {
+  background: url("https://www.quantum-bits.org/wp-content/uploads/2012/09/particule-physics.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.not {
+  background: url("https://thumbs.gfycat.com/SnappyAliveJackrabbit-size_restricted.gif");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -14,8 +20,20 @@
   background-repeat: no-repeat;
 }
 
+.ui.huge.header {
+  color: #1d0909;
+}
+
+.nfound {
+  padding: 200px;
+}
+
 .footer {
   padding: 100px 0 0px 0;
+}
+
+.ui.segment.footer{
+ background-color: #364e61;
 }
 
 .tree.footer {
@@ -51,6 +69,7 @@
 }
 
 .ui.inverted.menu {
+  background-color: #364e61;
   margin: 0 !important;
 }
 
@@ -61,6 +80,10 @@
 .ui.segment.placeholder {
   max-width: 500px;
   margin: auto;
+}
+
+.ui.blue.button {
+  background-color: #467498;
 }
 
 .ui.card.home-image {
@@ -184,14 +207,14 @@
 }
 
 .ui.segments.post.box {
-  background-color: #e3f2fd !important;
+  background-color: #c1cfdc !important;
   max-width: 550px;
   margin: auto;
   padding: 2rem;
 }
 
 .ui.segment.comment.box {
-  background-color: #bbdefd !important;
+  background-color: #e3e7ea !important;
   max-width: 450px;
   margin: auto;
 }
