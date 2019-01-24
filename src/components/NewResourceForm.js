@@ -81,6 +81,10 @@ class NewResourceForm extends React.Component {
                 onChange={this.OnFormChanges}
                 label='Photo URL' name="photo" value={this.state.photo}
                 control="input" placeholder="Photo Url" />
+                <Form.Field
+                  control="input" type="file" name="file"
+                  multiple
+                  />
               <Modal.Description>
                 <p>By submitting this resource, you agree to allow other educators to use your materials.</p>
                 <p>Thank you for sharing!</p>
