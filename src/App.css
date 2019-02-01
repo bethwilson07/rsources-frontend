@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: #153D61;
 }
 
 /* unvisited link */
@@ -35,6 +36,7 @@ a:active {
   background-size: cover;
   background-repeat: no-repeat;
 }
+
 
 .subject.page, .home.page, .course.page, .filtered.page, .resource.page {
   background: url("http://www.jostens.fr/wp-content/uploads/2012/02/siteBackground.jpg");

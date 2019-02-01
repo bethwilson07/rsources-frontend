@@ -12,7 +12,7 @@ const TopNavBar =({location: { pathname }, logged_in, setCurrentUser}) => {
   return (
     <Menu inverted color='darkblue'>
       {logged_in ? (
-        <Fragment>
+        <Fragment className="nav">
           <Menu.Item>
             <Image size="mini" src="https://i.stack.imgur.com/WMRSU.gif"/>
             RSources
